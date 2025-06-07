@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Block access to sensitive files
+Disallow: /static/assets/docs/
+Disallow: /*.md$
+Disallow: /static/js/
+Disallow: /static/css/
