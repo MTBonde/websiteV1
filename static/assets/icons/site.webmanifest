@@ -1,0 +1,21 @@
+{
+    "name": "Mpho Bonde Portfolio",
+    "short_name": "mtbonde.dev",
+    "description": "Developer & DevOps Engineer Portfolio",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#101820",
+    "background_color": "#101820",
+    "icons": [
+        {
+            "src": "favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}

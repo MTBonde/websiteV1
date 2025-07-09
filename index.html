@@ -3,30 +3,193 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mtbonde.dev</title>
-
+    <meta name="robots" content="noindex, nofollow">
+    <title>Mpho Bonde - Developer & DevOps Engineer</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <script>
-        // Basic console log for feedback
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log("Welcome to mtbonde.dev");
-        });
-    </script>
+    <link rel="stylesheet" href="static/css/main.css" />
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Mpho Bonde - Developer, DevOps Engineer, and Problem Solver. Building solutions with modern technologies.">
+    <meta name="keywords" content="developer, devops, programming, portfolio, mpho bonde">
+    <meta name="author" content="Mpho Bonde">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mtbonde.dev/">
+    <meta property="og:title" content="Mpho Bonde - Developer & DevOps Engineer">
+    <meta property="og:description" content="Developer, DevOps Engineer, and Problem Solver. Building solutions with modern technologies.">
+    <meta property="og:image" content="https://mtbonde.dev/assets/images/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mtbonde.dev/">
+    <meta property="twitter:title" content="Mpho Bonde - Developer & DevOps Engineer">
+    <meta property="twitter:description" content="Developer, DevOps Engineer, and Problem Solver. Building solutions with modern technologies.">
+    <meta property="twitter:image" content="https://mtbonde.dev/assets/images/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="static/assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="static/assets/icons/safari-pinned-tab.svg" color="#fdb927">
+    <meta name="msapplication-TileColor" content="#101820">
+    <meta name="theme-color" content="#101820">
 </head>
 <body>
-<div class="container">
-    <h1>mtbonde.dev</h1>
-    <p>
-        This is a temporary landing page while the full site is being set up on my homelab.
-        <br /><br />
-        The site will host my coding projects, DevOps experiments, and self-hosted services.
-    </p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">mtbonde.dev</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
 
-    <footer>
-        &copy; 2025 Mpho Bonde 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mpho Bonde</h1>
+                <p class="hero-subtitle">
+                    Developer & DevOps Engineer building solutions that matter
+                </p>
+                <p>
+                    I specialize in creating robust applications and streamlining development workflows. 
+                    My approach combines technical expertise with curiosity-driven problem solving to deliver 
+                    solutions that work for both users and teams.
+                </p>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="projects.html" class="btn">View Projects</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Preview -->
+    <section class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">MyFoodBudget Web App</h3>
+                    <p class="project-description">
+                        Web application for recipe management and cost calculation built with Flask. 
+                        Features modular architecture using Blueprints and prepared for CI/CD deployment.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Blueprints</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                    <a href="projects.html" class="btn btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Homelab DevOps Environment</h3>
+                    <p class="project-description">
+                        Self-hosted infrastructure with secure tunneling, automated deployments, and monitoring. 
+                        Hands-on DevOps learning through real-world application.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Ubuntu</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Cloudflare Tunnel</span>
+                        <span class="tag">Self-hosting</span>
+                    </div>
+                    <a href="projects.html" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">CDM Vancouver – Runtime Unity Tools</h3>
+                    <p class="project-description">
+                        Lead Developer role on international team in Vancouver. Built advanced VR editor tools 
+                        that reduced client production time from over a month to approximately two weeks.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Editor Tooling</span>
+                        <span class="tag">VR</span>
+                        <span class="tag">Lead Dev</span>
+                        <span class="tag">International Team</span>
+                    </div>
+                    <a href="projects.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="projects.html" class="btn">See All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Skills Overview -->
+    <section class="section">
+        <div class="container">
+            <h2>What I Do</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <ul>
+                        <li>Full-stack web development</li>
+                        <li>API design and integration</li>
+                        <li>Database design and optimization</li>
+                        <li>Frontend frameworks and libraries</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Infrastructure</h3>
+                    <ul>
+                        <li>CI/CD pipeline automation</li>
+                        <li>Container orchestration</li>
+                        <li>Cloud infrastructure management</li>
+                        <li>Monitoring and logging</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Collaboration & Process</h3>
+                    <ul>
+                        <li>Agile project management</li>
+                        <li>Technical documentation</li>
+                        <li>Code review and mentoring</li>
+                        <li>Cross-team communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Mpho Bonde. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="static/assets/docs/cv.pdf" target="_blank" aria-label="Download CV">CV</a>
+                </div>
+            </div>
+        </div>
     </footer>
-</div>
+
+    <!-- JavaScript -->
+    <script src="static/js/theme-toggle.js"></script>
 </body>
 </html>

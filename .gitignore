@@ -1,0 +1,57 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backup files
+*.bak
+*.backup
+*_old.*
+*_backup.*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if using any build tools in future)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs (if using build tools in future)
+dist/
+build/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Deployment files
+.deploy/

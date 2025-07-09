@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Mpho Bonde</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Page not found - Return to Mpho Bonde's portfolio">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="static/assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="static/assets/icons/safari-pinned-tab.svg" color="#fdb927">
+    <meta name="msapplication-TileColor" content="#101820">
+    <meta name="theme-color" content="#101820">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">mtbonde.dev</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 404 Error Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 style="font-size: 6rem; margin-bottom: 1rem;">404</h1>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-color);">Page Not Found</h2>
+                <p class="hero-subtitle">
+                    Sorry, the page you're looking for doesn't exist or has been moved.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    You can return to the homepage or browse my projects and about page.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html" class="btn">Go Home</a>
+                    <a href="projects.html" class="btn btn-secondary">View Projects</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Helpful Links -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Popular Pages</h2>
+            <div class="projects-grid" style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="text-align: center; padding: 2rem;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Featured Projects</h3>
+                    <p style="margin-bottom: 1.5rem;">
+                        Check out my latest work including the NutriFinder API and DevOps homelab setup.
+                    </p>
+                    <a href="projects.html" class="btn btn-secondary">View Projects</a>
+                </div>
+                
+                <div class="card" style="text-align: center; padding: 2rem;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">About Me</h3>
+                    <p style="margin-bottom: 1.5rem;">
+                        Learn about my approach to development, DevOps, and problem-solving.
+                    </p>
+                    <a href="about.html" class="btn btn-secondary">About Me</a>
+                </div>
+                
+                <div class="card" style="text-align: center; padding: 2rem;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Get in Touch</h3>
+                    <p style="margin-bottom: 1.5rem;">
+                        Have a project in mind? I'd love to hear about it and discuss how I can help.
+                    </p>
+                    <a href="contact.html" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Mpho Bonde. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="static/assets/docs/cv.pdf" target="_blank" aria-label="Download CV">CV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="static/js/theme-toggle.js"></script>
+</body>
+</html>

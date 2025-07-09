@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Mpho Bonde</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Portfolio of projects by Mpho Bonde - showcasing development and DevOps work.">
+    <meta name="keywords" content="projects, portfolio, development, devops, coding, mpho bonde">
+    <meta name="author" content="Mpho Bonde">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="static/assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="static/assets/icons/safari-pinned-tab.svg" color="#fdb927">
+    <meta name="msapplication-TileColor" content="#101820">
+    <meta name="theme-color" content="#101820">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">mtbonde.dev</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link" style="color: var(--accent-color);">Projects</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="section">
+        <div class="container">
+            <h1>My Projects</h1>
+            <p style="font-size: 1.125rem; color: var(--secondary-text); margin-bottom: 3rem; text-align: center;">
+                A collection of projects that showcase my approach to solving problems through code and infrastructure.
+            </p>
+
+            <div class="projects-grid">
+                <!-- MyFoodBudget Web App -->
+                <div class="project-card">
+                    <h3 class="project-title">MyFoodBudget Web App</h3>
+                    <p class="project-description">
+                        A web app for managing recipes, calculating costs, and handling user accounts. 
+                        Built with layered architecture using Flask Blueprints and prepared for CI/CD. 
+                        A hobby project focusing on delivering a functional product with DevOps workflows.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            This project taught me the value of modular architecture from the start. Using Flask Blueprints 
+                            and proper separation of concerns made the application much easier to maintain and extend as 
+                            requirements evolved.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Implementing accurate cost calculations across different recipe formats required flexible data modeling. 
+                            I designed a normalized database schema that could handle various ingredient types and measurement 
+                            units while maintaining calculation accuracy.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Blueprints</span>
+                        <span class="tag">Docker Compose</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/MyFoodBudget_v0.1" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Homelab v1 Project -->
+                <div class="project-card">
+                    <h3 class="project-title">Homelab v1 – DevOps Learning Environment</h3>
+                    <p class="project-description">
+                        A personal DevOps project built from scratch. Includes self-hosting services behind secure tunnels, 
+                        DNS configuration, versioned deployments, and documented CI/CD via GitHub Actions. 
+                        Actively used for hands-on DevOps practice.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Running production-like infrastructure at home taught me about operational concerns that don't surface in development. 
+                            Understanding network security, automated deployments, and monitoring became much more practical through real-world application.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Balancing security with convenience in a home environment required creative solutions. 
+                            I implemented Cloudflare tunneling, automated certificate management, and CI/CD workflows 
+                            while keeping the system maintainable and well-documented.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Ubuntu</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Cloudflare Tunnel</span>
+                        <span class="tag">Self-hosting</span>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Networking</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/my-first-homelab" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- CDM Vancouver Project -->
+                <div class="project-card">
+                    <h3 class="project-title">CDM Vancouver – Runtime Unity Tools</h3>
+                    <p class="project-description">
+                        Exchange semester as Lead Developer on an international team in Vancouver. Built advanced editor tools 
+                        for VR company Buffalo Buffalo, including runtime manipulation, gizmos, and custom UI windows. 
+                        Reduced client's level production time from over a month to approximately two weeks.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Leading an international team taught me the importance of clear communication and documentation. 
+                            Building tools that dramatically improve workflows requires deep understanding of user pain points 
+                            and close collaboration with end users.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Creating tools that work seamlessly in runtime while maintaining performance was complex. 
+                            I implemented efficient event systems and custom inspector workflows that allowed real-time 
+                            level editing without disrupting the VR experience.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Editor Tooling</span>
+                        <span class="tag">VR</span>
+                        <span class="tag">Lead Dev</span>
+                        <span class="tag">International Collaboration</span>
+                        <span class="tag">Runtime Tools</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--secondary-text); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+
+                <!-- NutriFinder API Project -->
+                <div class="project-card">
+                    <h3 class="project-title">NutriFinder API</h3>
+                    <p class="project-description">
+                        An exam project built with professional software architecture and strong focus on testability. 
+                        The system consists of a REST API and CLI client for nutrition lookups, with fallback to OpenFoodFacts 
+                        and the Danish DTU food database.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            This project taught me the importance of test-driven development and clean architecture patterns. 
+                            Working with external APIs and handling fallback scenarios reinforced the need for robust error handling 
+                            and service reliability patterns.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Integrating multiple data sources with different response formats required careful abstraction. 
+                            I implemented a repository pattern with adapters for each service, enabling seamless fallback between 
+                            data sources while maintaining consistent API responses.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">.NET</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">TDD</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Testcontainers</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/PB-SK-Xamen-NutriFinder" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Unity DOTS Boids Project -->
+                <div class="project-card">
+                    <h3 class="project-title">Unity DOTS Boids – Flocking & Performance</h3>
+                    <p class="project-description">
+                        Three technical experiments exploring boid behavior and performance in Unity. 
+                        Includes an ECS version with over 25,000 agents in real time, a GPU-based compute shader version, 
+                        and a prototype applying the system in gameplay.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Working with Unity's Data-Oriented Technology Stack taught me about performance optimization 
+                            at scale. Comparing CPU and GPU implementations showed me when each approach is most effective 
+                            and how architecture decisions impact performance.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Achieving real-time performance with 25,000+ entities required careful memory management and 
+                            algorithmic optimization. I implemented spatial partitioning and job system parallelization 
+                            to distribute the computational load effectively across available cores.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">DOTS</span>
+                        <span class="tag">ECS</span>
+                        <span class="tag">HLSL</span>
+                        <span class="tag">Compute Shaders</span>
+                        <span class="tag">GPU</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/BoidzDots" target="_blank" class="btn">ECS Version</a>
+                        <a href="https://github.com/MTBonde/ComputeShaderBoidTest" target="_blank" class="btn btn-secondary">GPU Version</a>
+                    </div>
+                </div>
+
+                <!-- TrashyShooter Project -->
+                <div class="project-card">
+                    <h3 class="project-title">MonoGame FPS – TrashyShooter</h3>
+                    <p class="project-description">
+                        A networked first-person shooter built with MonoGame, implementing advanced networking techniques 
+                        like authoritative server logic, lag compensation, and snapshot interpolation for smooth 
+                        multiplayer gameplay.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Building networked gameplay taught me about the complexities of real-time synchronization. 
+                            Understanding client prediction, server reconciliation, and lag compensation showed me how 
+                            to create responsive multiplayer experiences despite network latency.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Implementing lag compensation without introducing exploits required careful state management. 
+                            I developed a time-travel system that validates shots against historical game states while 
+                            maintaining authoritative server control over game outcomes.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">MonoGame</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Multiplayer</span>
+                        <span class="tag">Lag Compensation</span>
+                        <span class="tag">Snapshot Interpolation</span>
+                        <span class="tag">Networking</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/TrashyShooter" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- HorrorMaze 3D Game -->
+                <div class="project-card">
+                    <h3 class="project-title">3D Horror Game – HorrorMaze</h3>
+                    <p class="project-description">
+                        A complete prototype of a 3D first-person horror game built in MonoGame, with focus on complex game systems, 
+                        player interaction, and immersive soundscapes.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Building an atmospheric horror game taught me about the importance of audio design and player psychology. 
+                            Creating tension through technical implementation rather than just visual assets showed me how code 
+                            can directly impact user experience.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Creating convincing 3D environments with limited resources required creative optimization. 
+                            I implemented dynamic lighting systems and spatial audio to create atmosphere while maintaining 
+                            performance on lower-end hardware.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">MonoGame</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">3D</span>
+                        <span class="tag">Sound Design</span>
+                        <span class="tag">User Testing</span>
+                        <span class="tag">Level Design</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/HorrorMaze" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- SuperSkole Educational Game -->
+                <div class="project-card">
+                    <h3 class="project-title">SuperSkole – Educational Game (Internship)</h3>
+                    <p class="project-description">
+                        Internship project where I acted as Scrum Master and technical lead for a mixed team of developers 
+                        and school interns. Emphasis on structure, mentoring, and continuous delivery. 
+                        Project exceeded original scope by 40%.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Leading a diverse team with varying skill levels taught me about adaptive leadership and 
+                            communication. I learned to balance technical guidance with team development, ensuring 
+                            everyone could contribute meaningfully to the project.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Managing scope creep while maintaining team morale required careful planning and communication. 
+                            I implemented structured sprint reviews and created clear documentation to help team members 
+                            understand how their work contributed to the larger goals.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Scrum Master</span>
+                        <span class="tag">Product Owner</span>
+                        <span class="tag">Project Manager</span>
+                        <span class="tag">Team Lead</span>
+                        <span class="tag">Educational Games</span>
+                        <span class="tag">Leadership</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--secondary-text); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+
+                <!-- Unity ML Snake -->
+                <div class="project-card">
+                    <h3 class="project-title">Unity ML Snake</h3>
+                    <p class="project-description">
+                        A learning game where the player competes against an AI-trained agent. Focus on PPO training 
+                        using Unity ML-Agents and real-time feedback between human and AI performance.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Working with reinforcement learning taught me about the iterative nature of AI training and 
+                            the importance of reward function design. Watching an AI learn to play in real-time gave me 
+                            insights into how learning algorithms adapt to challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Balancing the AI difficulty to create engaging gameplay required careful tuning of the training environment. 
+                            I implemented curriculum learning and reward shaping to gradually increase complexity while 
+                            maintaining stable training convergence.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">ML-Agents</span>
+                        <span class="tag">PPO</span>
+                        <span class="tag">Reinforcement Learning</span>
+                        <span class="tag">AI vs Player</span>
+                        <span class="tag">Machine Learning</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/Tarkonner/ML_Snake" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Klimapark Prototype -->
+                <div class="project-card">
+                    <h3 class="project-title">Klimapark Prototype – Interactive Learning</h3>
+                    <p class="project-description">
+                        Developed an interactive prototype within three weeks for an external client. 
+                        Emphasis on rapid development, collaboration, and delivery under pressure for 
+                        Klimapark Nordvestjylland funding proposal.
+                    </p>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Working under tight deadlines with external stakeholders taught me about prioritization and 
+                            communication under pressure. I learned to quickly identify the minimum viable features 
+                            that would demonstrate the concept effectively.
+                        </p>
+                    </div>
+                    
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Delivering a compelling prototype in just three weeks required aggressive scope management. 
+                            I focused on creating a polished core experience rather than comprehensive features, 
+                            using rapid prototyping techniques to iterate quickly based on client feedback.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Prototype</span>
+                        <span class="tag">Educational Game</span>
+                        <span class="tag">Funding</span>
+                        <span class="tag">Scrum</span>
+                        <span class="tag">Rapid Development</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--secondary-text); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <h2>Interested in working together?</h2>
+                <p style="color: var(--secondary-text); margin-bottom: 2rem;">
+                    I'm always open to discussing new projects and opportunities.
+                </p>
+                <a href="contact.html" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Mpho Bonde. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="static/assets/docs/cv.pdf" target="_blank" aria-label="Download CV">CV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="static/js/theme-toggle.js"></script>
+</body>
+</html>
