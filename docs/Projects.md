@@ -4,12 +4,12 @@
 
 ---
 
-### 1. **NutriFinder API**
+### 1. **MyFoodBudget Web App**
 
-**Repo:** [PB-SK-Xamen-NutriFinder](https://github.com/MTBonde/PB-SK-Xamen-NutriFinder)
-**Tags:** `.NET`, `C#`, `MongoDB`, `REST`, `TDD`, `CI/CD`, `Docker`, `Testcontainers`
+**Repo:** [MyFoodBudget\_v0.1](https://github.com/MTBonde/MyFoodBudget_v0.1)
+**Tags:** `Python`, `Flask`, `MongoDB`, `Blueprints`, `Docker Compose`, `CI/CD`
 
-An exam project built with professional software architecture and a strong focus on testability. The system consists of a REST API and a CLI client for nutrition lookups, with a fallback to OpenFoodFacts and the Danish DTU food database.
+A web app for managing recipes, calculating costs, and handling user accounts. Built with a layered architecture using Flask Blueprints and prepared for CI/CD. A hobby project with a focus on delivering a functional product and supporting DevOps workflows.
 
 ---
 
@@ -44,12 +44,12 @@ Internship project where I acted as Scrum Master and technical lead for a mixed 
 
 ---
 
-### 5. **MyFoodBudget Web App**
+### 5. **NutriFinder API**
 
-**Repo:** [MyFoodBudget\_v0.1](https://github.com/MTBonde/MyFoodBudget_v0.1)
-**Tags:** `Python`, `Flask`, `MongoDB`, `Blueprints`, `Docker Compose`, `CI/CD`
+**Repo:** [PB-SK-Xamen-NutriFinder](https://github.com/MTBonde/PB-SK-Xamen-NutriFinder)
+**Tags:** `.NET`, `C#`, `MongoDB`, `REST`, `TDD`, `CI/CD`, `Docker`, `Testcontainers`
 
-A web app for managing recipes, calculating costs, and handling user accounts. Built with a layered architecture using Flask Blueprints and prepared for CI/CD. A hobby project with a focus on delivering a functional product and supporting DevOps workflows.
+An exam project built with professional software architecture and a strong focus on testability. The system consists of a REST API and a CLI client for nutrition lookups, with a fallback to OpenFoodFacts and the Danish DTU food database.
 
 ---
 

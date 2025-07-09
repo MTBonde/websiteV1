@@ -54,6 +54,7 @@ portfolio/
 - Semantic HTML structure with proper ARIA labels
 - Optimized images and minimal external dependencies
 - Sitemap and robots.txt for search engine indexing
+- Uses `noindex, nofollow` meta tag - this is intentional as the site is a personal portfolio shared manually, not for search discovery
 
 **Deployment:**
 - GitHub Pages with custom domain (mtbonde.dev)
