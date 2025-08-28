@@ -27,6 +27,10 @@
 }
 
 /* Base Styles */
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', 'Roboto', Arial, sans-serif;
     background-color: var(--bg-color);
@@ -35,6 +39,16 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
     overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Prevent content from causing horizontal overflow */
+.container,
+.nav-container,
+.hero-content,
+.footer-content {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Boids Canvas */
@@ -200,14 +214,35 @@ body {
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .boids-controls {
-        right: 10px;
-        min-width: 220px;
+        right: 5px;
+        left: 5px;
+        min-width: auto;
+        width: calc(100% - 10px);
+        max-width: 300px;
+        margin-left: auto;
     }
     
     .boids-toggle-btn {
         right: 10px;
         width: 45px;
         height: 45px;
+    }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 480px) {
+    .boids-controls {
+        right: 5px;
+        left: 5px;
+        width: calc(100% - 10px);
+        max-width: none;
+    }
+    
+    .boids-toggle-btn {
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 
@@ -691,6 +726,37 @@ p {
     /* Prevent body scrolling when mobile menu is open */
     body.mobile-menu-open {
         overflow: hidden;
+    }
+}
+
+/* Extra mobile fixes to prevent horizontal scrolling */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        word-break: break-word;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 }
 
