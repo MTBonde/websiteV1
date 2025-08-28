@@ -44,17 +44,17 @@ class ThemeToggle {
     }
 
     createToggleButton() {
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            this.updateToggleIcon(themeToggle);
-        }
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        themeToggles.forEach(toggle => {
+            this.updateToggleIcon(toggle);
+        });
     }
 
     addEventListeners() {
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => this.toggleTheme());
-        }
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => this.toggleTheme());
+        });
 
         // Listen for system theme changes
         if (window.matchMedia) {
@@ -63,10 +63,10 @@ class ThemeToggle {
                 if (!localStorage.getItem('theme')) {
                     this.theme = e.matches ? 'dark' : 'light';
                     this.applyTheme(this.theme);
-                    const themeToggle = document.querySelector('.theme-toggle');
-                    if (themeToggle) {
-                        this.updateToggleIcon(themeToggle);
-                    }
+                    const themeToggles = document.querySelectorAll('.theme-toggle');
+                    themeToggles.forEach(toggle => {
+                        this.updateToggleIcon(toggle);
+                    });
                 }
             });
         }
@@ -77,21 +77,23 @@ class ThemeToggle {
         this.applyTheme(this.theme);
         localStorage.setItem('theme', this.theme);
         
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            this.updateToggleIcon(themeToggle);
-        }
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        themeToggles.forEach(toggle => {
+            this.updateToggleIcon(toggle);
+        });
     }
 
     applyTheme(theme) {
         console.log('Applying theme:', theme);
-        if (theme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            console.log('Set data-theme to light');
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            console.log('Removed data-theme (dark mode)');
-        }
+        
+        // Remove existing theme classes first
+        document.documentElement.removeAttribute('data-theme');
+        
+        // Add the new theme with a slight delay to ensure the removal is processed
+        requestAnimationFrame(() => {
+            document.documentElement.setAttribute('data-theme', theme);
+            console.log('Theme applied:', theme);
+        });
     }
 
     updateToggleIcon(button) {

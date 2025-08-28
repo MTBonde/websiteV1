@@ -560,7 +560,7 @@ class BoidsSystem {
   }
 
   setupBoids() {
-    const boidCount = this.settings.boidCount;
+    const boidCount = this.getBoidCount();
     this.boids = [];
     
     const types = ['triangle', 'circle', 'diamond'];
@@ -596,8 +596,8 @@ class BoidsSystem {
   }
 
   getBoidCount() {
-    if (this.isMobile()) return 25;
-    if (window.innerWidth < 1024) return 40;
+    if (this.isMobile()) return 15; // Reduced for better mobile performance
+    if (window.innerWidth < 1024) return 30;
     if (window.innerWidth < 1920) return 60;
     return 80;
   }
@@ -1248,7 +1248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   
-  if (window.innerWidth > 480 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     try {
       boidsSystem = new BoidsSystem();
       boidsSystem.init();
