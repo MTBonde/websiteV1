@@ -31,6 +31,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">mtbonde.dev</a>
+            
+            <!-- Desktop Navigation -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
@@ -38,6 +40,26 @@
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
             </ul>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav">
+                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu" aria-hidden="true">
+                <ul class="mobile-menu-list">
+                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -112,5 +134,6 @@
 
     <!-- JavaScript -->
     <script src="static/js/theme-toggle.js"></script>
+    <script src="static/js/mobile-nav.js"></script>
 </body>
 </html>
