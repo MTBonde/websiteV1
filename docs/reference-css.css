@@ -1,0 +1,240 @@
+/* ===== Base: variables, fonts, color tokens ===== */
+:root {
+  /* Typography */
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Type scale (desktop-ish; tune as needed) */
+  --size-hero: clamp(2.25rem, 4vw, 3.25rem);  /* big intro name/title */
+  --size-h1: clamp(1.875rem, 3vw, 2.5rem);
+  --size-h2: clamp(1.5rem,  2.5vw, 2rem);
+  --size-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --size-body: 1rem;
+  --size-small: 0.875rem;
+
+  --weight-hero: 800;
+  --weight-h: 700;
+  --weight-strong: 600;
+  --weight-body: 400;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+
+  /* Radius & shadows */
+  --radius: 12px;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 6px 24px rgba(0,0,0,0.08);
+
+  /* Light theme colors */
+  --bg: #ffffff;
+  --bg-elev: #f8fafc;                 /* subtle section/card */
+  --text: #0b1220;                    /* near-black */
+  --muted: #5b6475;                   /* body-secondary */
+  --border: #e5e7eb;
+
+  /* Accent: cool blue / cyan vibe */
+  --primary: #2563eb;                 /* blue-600 */
+  --primary-600: #1d4ed8;
+  --primary-100: #dbeafe;
+  --accent: #06b6d4;                  /* cyan-500 for chips/badges */
+
+  /* Interactive states */
+  --focus: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+/* Dark theme (auto if user prefers dark) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f19;
+    --bg-elev: #111624;
+    --text: #eef2ff;
+    --muted: #a5b0c4;
+    --border: #1f2433;
+
+    --primary: #60a5fa;               /* lighten primary for dark */
+    --primary-600: #3b82f6;
+    --primary-100: #172554;
+    --accent: #22d3ee;
+  }
+}
+
+/* Optional manual theme switch: [data-theme="light"|"dark"] */
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"]  { color-scheme: dark; }
+
+/* ===== Resets & base ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { color-scheme: light dark; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--size-body);
+  font-weight: var(--weight-body);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Typography hierarchy ===== */
+.hero-title {
+  font-size: var(--size-hero);
+  font-weight: var(--weight-hero);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 var(--space-4);
+}
+
+h1, h2, h3 {
+  margin: var(--space-8) 0 var(--space-3);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: var(--weight-h);
+}
+
+h1 { font-size: var(--size-h1); }
+h2 { font-size: var(--size-h2); }
+h3 { font-size: var(--size-h3); }
+
+p { margin: 0 0 var(--space-4); color: var(--text); }
+p.muted, .muted { color: var(--muted); }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: var(--focus); }
+
+/* ===== Layout helpers ===== */
+.container {
+  max-width: 1100px;
+  padding: 0 var(--space-4);
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--space-12) 0;
+  background: transparent;
+}
+.section.elev { background: var(--bg-elev); }
+
+/* ===== Navigation ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(150%) blur(8px);
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar .bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-3) 0;
+}
+
+.navbar a.brand {
+  font-weight: var(--weight-strong);
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.navbar .links a {
+  color: var(--muted);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+}
+.navbar .links a:hover {
+  color: var(--text);
+  background: var(--bg-elev);
+}
+
+/* ===== Buttons ===== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--primary-600);
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-1);
+  transition: transform .06s ease, box-shadow .15s ease;
+}
+.button:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+.button:focus-visible { outline: var(--focus); }
+.button.ghost {
+  background: transparent;
+  color: var(--primary);
+  border-color: color-mix(in oklab, var(--primary) 55%, var(--border));
+}
+
+/* ===== Cards & "project tiles" ===== */
+.card {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-1);
+}
+.card:hover { box-shadow: var(--shadow-2); }
+
+.badge {
+  display: inline-block;
+  font-size: var(--size-small);
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  color: color-mix(in oklab, var(--primary) 85%, var(--text));
+  background: color-mix(in oklab, var(--primary) 12%, var(--bg-elev));
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, var(--border));
+}
+
+/* ===== Lists in "Experience" ===== */
+ul.tight {
+  list-style: disc inside;
+  margin: var(--space-4) 0;
+  padding: 0;
+  color: var(--muted);
+}
+ul.tight li + li { margin-top: var(--space-2); }
+
+/* ===== Footer ===== */
+.footer {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--bg);
+}
+
+/* ===== Utilities ===== */
+.max-w-prose { max-width: 68ch; }
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+  .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+}
