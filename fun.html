@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <title>Boids Simulation - Mpho Bonde</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS files -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    <style>
+        /* Boids-specific styles */
+        #boids-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.8;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .boids-controls {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-2);
+            min-width: 280px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .boids-controls.open {
+            transform: translateX(0);
+        }
+
+        .boids-toggle-btn {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-2);
+        }
+
+        .boids-toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .boids-controls h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .control-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .control-group input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .control-group input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 0.625rem;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+        }
+
+        .control-group input[type="checkbox"] {
+            margin-right: 0.625rem;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .control-value {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 0.625rem;
+            margin-top: 1.5rem;
+        }
+
+        .control-btn {
+            flex: 1;
+            padding: 0.625rem;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--bg-elev);
+            border-color: var(--primary);
+        }
+
+        .control-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .fun-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fun-content {
+            max-width: 700px;
+            padding: var(--space-6);
+        }
+
+        .fun-content h1 {
+            font-size: var(--size-hero);
+            margin-bottom: var(--space-4);
+        }
+
+        .fun-content p {
+            font-size: 1.125rem;
+            color: var(--muted);
+            margin-bottom: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .boids-controls {
+                right: 10px;
+                left: 10px;
+                min-width: auto;
+                width: calc(100% - 20px);
+                max-width: 320px;
+                margin-left: auto;
+                top: 70px;
+            }
+
+            .boids-toggle-btn {
+                right: 15px;
+                width: 48px;
+                height: 48px;
+                top: 70px;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/favicon-16x16.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">mtbonde.dev</a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav">
+                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu" aria-hidden="true">
+                <ul class="mobile-menu-list">
+                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Boids -->
+    <section class="fun-hero">
+        <div class="container">
+            <div class="fun-content">
+                <h1>Boids Simulation</h1>
+                <p class="muted">
+                    An interactive ecosystem demonstrating emergent behavior through simple rules.
+                    Watch as triangles, circles, and diamonds interact in a rock-paper-scissors dynamic.
+                </p>
+                <p style="font-size: 0.95rem; color: var(--muted);">
+                    <strong style="color: #ff6432;">▲ Triangles</strong> cut <strong style="color: #3296ff;">● Circles</strong><br>
+                    <strong style="color: #3296ff;">● Circles</strong> roll over <strong style="color: #64ff50;">♦ Diamonds</strong><br>
+                    <strong style="color: #64ff50;">♦ Diamonds</strong> cut <strong style="color: #ff6432;">▲ Triangles</strong>
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html" class="btn btn-secondary">Back to Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Mpho Bonde. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="index.html" aria-label="Home">Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="static/js/theme-toggle.js"></script>
+    <script src="static/js/mobile-nav.js"></script>
+    <script src="static/js/boids.js"></script>
+</body>
+</html>

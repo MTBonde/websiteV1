@@ -38,9 +38,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/favicon-16x16.png">
     <link rel="manifest" href="static/assets/icons/site.webmanifest">
-    <link rel="mask-icon" href="static/assets/icons/safari-pinned-tab.svg" color="#fdb927">
-    <meta name="msapplication-TileColor" content="#101820">
-    <meta name="theme-color" content="#101820">
+    <link rel="mask-icon" href="static/assets/icons/safari-pinned-tab.svg" color="#2563eb">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#2563eb">
 </head>
 <body>
     <!-- Navigation -->
@@ -82,19 +82,30 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Mpho Bonde</h1>
-                <p class="hero-subtitle">
-                    Developer & DevOps Engineer building solutions that matter
-                </p>
-                <p>
-                    I specialize in creating robust applications and streamlining development workflows. 
-                    My approach combines technical expertise with curiosity-driven problem solving to deliver 
-                    solutions that work for both users and teams.
-                </p>
-                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="projects.html" class="btn">View Projects</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+            <div class="hero-split">
+                <div class="hero-content">
+                    <h1>Mpho Bonde</h1>
+                    <p class="hero-subtitle">
+                        DevOps Engineer & Developer | Infrastructure Automation & Cloud Solutions
+                    </p>
+                    <p>
+                        Building reliable infrastructure and streamlining deployment pipelines.
+                        Passionate about automation, containerization, and continuous improvement.
+                        From homelab experiments to production systems, I focus on creating scalable
+                        solutions that empower development teams.
+                    </p>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="projects.html" class="btn">View Projects</a>
+                        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <img src="docs/Pictures/IMG_8584.JPG" alt="Mpho Bonde" class="profile-img active">
+                        <img src="docs/Pictures/IMG_8587.JPG" alt="Mpho Bonde" class="profile-img">
+                        <img src="docs/Pictures/IMG_8588.JPG" alt="Mpho Bonde" class="profile-img">
+                        <img src="docs/Pictures/IMG_8590.JPG" alt="Mpho Bonde" class="profile-img">
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,37 +170,58 @@
         </div>
     </section>
 
-    <!-- Quick Skills Overview -->
-    <section class="section">
+    <!-- Skills Section with Icons -->
+    <section class="section elev">
         <div class="container">
-            <h2>What I Do</h2>
-            <div class="skills-list">
-                <div class="skill-category">
-                    <h3>Development</h3>
-                    <ul>
-                        <li>Full-stack web development</li>
-                        <li>API design and integration</li>
-                        <li>Database design and optimization</li>
-                        <li>Frontend frameworks and libraries</li>
-                    </ul>
+            <h2 style="text-align: center; margin-bottom: var(--space-8);">Core Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">🐳</div>
+                    <div class="skill-name">Docker</div>
                 </div>
-                <div class="skill-category">
-                    <h3>DevOps & Infrastructure</h3>
-                    <ul>
-                        <li>CI/CD pipeline automation</li>
-                        <li>Container orchestration</li>
-                        <li>Cloud infrastructure management</li>
-                        <li>Monitoring and logging</li>
-                    </ul>
+                <div class="skill-item">
+                    <div class="skill-icon">☸️</div>
+                    <div class="skill-name">Kubernetes</div>
                 </div>
-                <div class="skill-category">
-                    <h3>Collaboration & Process</h3>
-                    <ul>
-                        <li>Agile project management</li>
-                        <li>Technical documentation</li>
-                        <li>Code review and mentoring</li>
-                        <li>Cross-team communication</li>
-                    </ul>
+                <div class="skill-item">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-name">AWS</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-name">Terraform</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔄</div>
+                    <div class="skill-name">CI/CD</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Monitoring</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔒</div>
+                    <div class="skill-name">Security</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">Networking</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📝</div>
+                    <div class="skill-name">IaC</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🐧</div>
+                    <div class="skill-name">Linux</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📦</div>
+                    <div class="skill-name">Git</div>
                 </div>
             </div>
         </div>
@@ -214,6 +246,6 @@
     <!-- JavaScript -->
     <script src="static/js/theme-toggle.js"></script>
     <script src="static/js/mobile-nav.js"></script>
-    <script src="static/js/boids.js"></script>
+    <script src="static/js/profile-carousel.js"></script>
 </body>
 </html>
