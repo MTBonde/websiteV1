@@ -37,6 +37,7 @@
   --text: #0b1220;
   --muted: #5b6475;
   --border: #e5e7eb;
+  --hover-bg: #f1f5f9;
 
   /* Accent: cool blue vibe */
   --primary: #2563eb;
@@ -55,6 +56,7 @@
   --text: #eef2ff;
   --muted: #94a3b8;
   --border: #334155;
+  --hover-bg: #334155;
 
   --primary: #60a5fa;
   --primary-600: #3b82f6;
@@ -73,6 +75,7 @@
     --text: #eef2ff;
     --muted: #94a3b8;
     --border: #334155;
+    --hover-bg: #334155;
 
     --primary: #60a5fa;
     --primary-600: #3b82f6;
