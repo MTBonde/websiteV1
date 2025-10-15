@@ -48,6 +48,42 @@
             transform: translateX(0);
         }
 
+        .info-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-2);
+            min-width: 320px;
+            max-width: 500px;
+            transition: all 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .info-panel.hidden {
+            left: 0;
+            transform: translate(-100%, -50%);
+        }
+
+        .info-panel h1 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .info-panel p {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
         .boids-toggle-btn {
             position: fixed;
             top: 80px;
@@ -71,6 +107,35 @@
         .boids-toggle-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .info-toggle-btn {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 1001;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-2);
+        }
+
+        .info-toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .fun-content {
+            display: none;
         }
 
         .boids-controls h3 {
@@ -221,8 +286,27 @@
                 top: 70px;
             }
 
+            .info-panel {
+                min-width: auto;
+                width: calc(100% - 40px);
+                max-width: 320px;
+                padding: 1.5rem;
+            }
+
+            .info-panel.hidden {
+                left: 0;
+                transform: translate(-100%, -50%);
+            }
+
             .boids-toggle-btn {
                 right: 15px;
+                width: 48px;
+                height: 48px;
+                top: 70px;
+            }
+
+            .info-toggle-btn {
+                left: 15px;
                 width: 48px;
                 height: 48px;
                 top: 70px;
@@ -237,40 +321,10 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">mtbonde.dev</a>
+    <div id="navigation-placeholder"></div>
 
-            <!-- Desktop Navigation -->
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
-            </ul>
-
-            <!-- Mobile Navigation -->
-            <div class="mobile-nav">
-                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
-                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </div>
-
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu" aria-hidden="true">
-                <ul class="mobile-menu-list">
-                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-                    <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
-                    <li><a href="about.html" class="mobile-nav-link">About</a></li>
-                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Info Panel (initially empty, populated via JS) -->
+    <div class="info-panel" role="dialog" aria-label="Simulation information" aria-hidden="true"></div>
 
     <!-- Hero Section with Boids -->
     <section class="fun-hero">
@@ -310,8 +364,119 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="static/js/navigation.js"></script>
     <script src="static/js/theme-toggle.js"></script>
     <script src="static/js/mobile-nav.js"></script>
     <script src="static/js/boids.js"></script>
+
+    <!-- Info Panel Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const infoPanel = document.querySelector('.info-panel');
+            const funContent = document.querySelector('.fun-content');
+
+            if (!infoPanel || !funContent) return;
+
+            // Populate info panel with content on load
+            infoPanel.innerHTML = funContent.innerHTML;
+            infoPanel.setAttribute('aria-hidden', 'false');
+
+            // Create info toggle button
+            const infoToggleBtn = document.createElement('button');
+            infoToggleBtn.className = 'info-toggle-btn';
+            infoToggleBtn.innerHTML = '📖';
+            infoToggleBtn.setAttribute('aria-label', 'Hide information panel');
+            infoToggleBtn.setAttribute('aria-expanded', 'true');
+            infoToggleBtn.setAttribute('tabindex', '0');
+            infoToggleBtn.setAttribute('role', 'button');
+
+            document.body.appendChild(infoToggleBtn);
+
+            let isPanelVisible = true;
+
+            const togglePanel = () => {
+                isPanelVisible = !isPanelVisible;
+
+                if (isPanelVisible) {
+                    // Show panel in center
+                    infoPanel.classList.remove('hidden');
+                    infoPanel.setAttribute('aria-hidden', 'false');
+                    infoToggleBtn.setAttribute('aria-expanded', 'true');
+                    infoToggleBtn.setAttribute('aria-label', 'Hide information panel');
+                } else {
+                    // Hide panel to left
+                    infoPanel.classList.add('hidden');
+                    infoPanel.setAttribute('aria-hidden', 'true');
+                    infoToggleBtn.setAttribute('aria-expanded', 'false');
+                    infoToggleBtn.setAttribute('aria-label', 'Show information panel');
+                }
+            };
+
+            // Toggle button click handler
+            infoToggleBtn.addEventListener('click', togglePanel);
+
+            // Keyboard support
+            infoToggleBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    togglePanel();
+                }
+            });
+
+            // Sync scroll behavior with boids controls
+            let ticking = false;
+
+            const updateScroll = () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const heroSection = document.querySelector('.fun-hero');
+
+                if (heroSection) {
+                    let visibilityRatio = 1;
+
+                    if (scrollTop > 50) {
+                        const fadeDistance = window.innerHeight * 0.4;
+                        const fadeProgress = Math.min(1, (scrollTop - 50) / fadeDistance);
+                        visibilityRatio = 1 - fadeProgress;
+                    }
+
+                    const scrollOpacity = Math.max(0, visibilityRatio);
+                    const isScrollVisible = visibilityRatio > 0.01;
+
+                    // Update info button and panel opacity
+                    if (infoToggleBtn) {
+                        if (isScrollVisible) {
+                            infoToggleBtn.style.opacity = scrollOpacity;
+                            infoToggleBtn.style.pointerEvents = 'auto';
+                        } else {
+                            infoToggleBtn.style.opacity = '0';
+                            infoToggleBtn.style.pointerEvents = 'none';
+                            if (isPanelVisible) {
+                                infoPanel.classList.add('hidden');
+                            }
+                        }
+                    }
+
+                    if (infoPanel && isPanelVisible) {
+                        infoPanel.style.opacity = scrollOpacity;
+                    }
+                }
+
+                ticking = false;
+            };
+
+            const onScroll = () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateScroll);
+                    ticking = true;
+                }
+            };
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', updateScroll);
+
+            // Initial check
+            updateScroll();
+        });
+    </script>
 </body>
 </html>

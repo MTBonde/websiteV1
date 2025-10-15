@@ -475,6 +475,20 @@ a:focus-visible {
   transform: translateY(-4px);
 }
 
+.skill-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.skill-link:hover {
+  text-decoration: none;
+}
+
+.skill-link:hover .skill-name {
+  color: var(--primary);
+}
+
 .skill-icon {
   width: 64px;
   height: 64px;
@@ -896,5 +910,101 @@ ul.tight li + li {
   .mobile-nav,
   .mobile-menu {
     display: none !important;
+  }
+}
+
+/* ===== Project Filter Controls ===== */
+.filter-container {
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--bg-elev);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: var(--size-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, var(--bg));
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-1);
+}
+
+.filter-btn.active:hover {
+  background: var(--primary-600);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.clear-all-filters {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: var(--size-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.clear-all-filters:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, var(--bg));
+}
+
+.clear-all-filters:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    padding: var(--space-4);
+  }
+
+  .filter-buttons {
+    gap: var(--space-1);
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8125rem;
   }
 }

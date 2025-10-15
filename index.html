@@ -44,40 +44,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-brand">mtbonde.dev</a>
-            
-            <!-- Desktop Navigation -->
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
-            </ul>
-            
-            <!-- Mobile Navigation -->
-            <div class="mobile-nav">
-                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
-                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu" aria-hidden="true">
-                <ul class="mobile-menu-list">
-                    <li><a href="#home" class="mobile-nav-link">Home</a></li>
-                    <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
-                    <li><a href="about.html" class="mobile-nav-link">About</a></li>
-                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navigation-placeholder"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -175,54 +142,54 @@
         <div class="container">
             <h2 style="text-align: center; margin-bottom: var(--space-8);">Core Technologies</h2>
             <div class="skills-grid">
-                <div class="skill-item">
+                <a href="projects.html?tag=Docker" class="skill-item skill-link">
                     <div class="skill-icon">🐳</div>
                     <div class="skill-name">Docker</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Kubernetes" class="skill-item skill-link">
                     <div class="skill-icon">☸️</div>
                     <div class="skill-name">Kubernetes</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=AWS" class="skill-item skill-link">
                     <div class="skill-icon">☁️</div>
                     <div class="skill-name">AWS</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Terraform" class="skill-item skill-link">
                     <div class="skill-icon">🔧</div>
                     <div class="skill-name">Terraform</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=CI/CD" class="skill-item skill-link">
                     <div class="skill-icon">🔄</div>
                     <div class="skill-name">CI/CD</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Python" class="skill-item skill-link">
                     <div class="skill-icon">🐍</div>
                     <div class="skill-name">Python</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Monitoring" class="skill-item skill-link">
                     <div class="skill-icon">📊</div>
                     <div class="skill-name">Monitoring</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Security" class="skill-item skill-link">
                     <div class="skill-icon">🔒</div>
                     <div class="skill-name">Security</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Networking" class="skill-item skill-link">
                     <div class="skill-icon">🌐</div>
                     <div class="skill-name">Networking</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=IaC" class="skill-item skill-link">
                     <div class="skill-icon">📝</div>
                     <div class="skill-name">IaC</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Linux" class="skill-item skill-link">
                     <div class="skill-icon">🐧</div>
                     <div class="skill-name">Linux</div>
-                </div>
-                <div class="skill-item">
+                </a>
+                <a href="projects.html?tag=Git" class="skill-item skill-link">
                     <div class="skill-icon">📦</div>
                     <div class="skill-name">Git</div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -244,6 +211,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="static/js/navigation.js"></script>
     <script src="static/js/theme-toggle.js"></script>
     <script src="static/js/mobile-nav.js"></script>
     <script src="static/js/profile-carousel.js"></script>

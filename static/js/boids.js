@@ -469,11 +469,65 @@ class Boid {
   }
 }
 
+class SpatialHashGrid {
+  constructor(width, height, cellSize) {
+    this.width = width;
+    this.height = height;
+    this.cellSize = cellSize;
+    this.cells = new Map();
+  }
+
+  getCellKey(x, y) {
+    const cellX = Math.floor(x / this.cellSize);
+    const cellY = Math.floor(y / this.cellSize);
+    return `${cellX},${cellY}`;
+  }
+
+  insert(boid) {
+    const key = this.getCellKey(boid.position.x, boid.position.y);
+    if (!this.cells.has(key)) {
+      this.cells.set(key, []);
+    }
+    this.cells.get(key).push(boid);
+  }
+
+  getNearby(x, y, radius) {
+    const nearbyBoids = [];
+    const minCellX = Math.floor((x - radius) / this.cellSize);
+    const maxCellX = Math.floor((x + radius) / this.cellSize);
+    const minCellY = Math.floor((y - radius) / this.cellSize);
+    const maxCellY = Math.floor((y + radius) / this.cellSize);
+
+    for (let cellX = minCellX; cellX <= maxCellX; cellX++) {
+      for (let cellY = minCellY; cellY <= maxCellY; cellY++) {
+        const key = `${cellX},${cellY}`;
+        const boidsInCell = this.cells.get(key);
+        if (boidsInCell) {
+          nearbyBoids.push(...boidsInCell);
+        }
+      }
+    }
+
+    return nearbyBoids;
+  }
+
+  clear() {
+    this.cells.clear();
+  }
+
+  resize(width, height) {
+    this.width = width;
+    this.height = height;
+    this.clear();
+  }
+}
+
 class BoidsSystem {
   constructor() {
     this.canvas = null;
     this.ctx = null;
     this.boids = [];
+    this.spatialGrid = null;
     this.animationId = null;
     this.isRunning = false;
     this.isEnabled = true;
@@ -490,7 +544,7 @@ class BoidsSystem {
     this.mousePos = null;
     this.scrollOpacity = 1;
     this.isScrollVisible = true;
-    
+
     // Catch event system
     this.catchEvents = [];
     this.maxCatchEvents = 50;
@@ -520,6 +574,7 @@ class BoidsSystem {
 
   init() {
     this.createCanvas();
+    this.spatialGrid = new SpatialHashGrid(window.innerWidth, window.innerHeight, 100);
     this.setupBoids();
     this.detectTheme();
     this.setupThemeListener();
@@ -550,17 +605,21 @@ class BoidsSystem {
   resize() {
     const dpr = window.devicePixelRatio || 1;
     const rect = this.canvas.getBoundingClientRect();
-    
+
     this.canvas.width = rect.width * dpr;
     this.canvas.height = rect.height * dpr;
-    
+
     this.ctx.scale(dpr, dpr);
     this.canvas.style.width = rect.width + 'px';
     this.canvas.style.height = rect.height + 'px';
+
+    if (this.spatialGrid) {
+      this.spatialGrid.resize(rect.width, rect.height);
+    }
   }
 
   setupBoids() {
-    const boidCount = this.getBoidCount();
+    const boidCount = this.settings.boidCount;
     this.boids = [];
     
     const types = ['triangle', 'circle', 'diamond'];
@@ -643,30 +702,46 @@ class BoidsSystem {
 
   animate(currentTime = 0) {
     if (!this.isRunning || !this.isEnabled) return;
-    
+
     this.updatePerformanceMetrics(currentTime);
-    
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
+
+    // Clear and rebuild spatial grid each frame
+    this.spatialGrid.clear();
+    for (let boid of this.boids) {
+      this.spatialGrid.insert(boid);
+    }
+
     const boidsToRender = Math.floor(this.boids.length * this.performanceScale);
     for (let i = 0; i < boidsToRender; i++) {
       const boid = this.boids[i];
-      boid.flock(this.boids, this.mousePos);
-      
+
+      // Get nearby boids using spatial partitioning
+      // Use fleeRadius (100) as the maximum interaction distance
+      const maxInteractionRadius = 100;
+      const nearbyBoids = this.spatialGrid.getNearby(
+        boid.position.x,
+        boid.position.y,
+        maxInteractionRadius
+      );
+
+      boid.flock(nearbyBoids, this.mousePos);
+
       // Update visual properties
       this.updateBoidVisuals(boid);
-      
+
       boid.update();
       boid.borders(window.innerWidth, window.innerHeight);
       boid.render(this.ctx, this.settings.showTrails);
     }
-    
+
     // Render catch events (on top of everything)
     this.renderCatchEvents();
-    
+
     // Update catch events aging
     this.updateCatchEvents();
-    
+
     this.animationId = requestAnimationFrame((time) => this.animate(time));
   }
   
@@ -1008,7 +1083,7 @@ class BoidsSystem {
     
     controlPanel.innerHTML = `
       <h3>Ecosystem Controls</h3>
-      <div style="color: var(--secondary-text); font-size: 0.8rem; margin-bottom: 1rem;">
+      <div style="color: var(--muted); font-size: 0.8rem; margin-bottom: 1rem;">
         <span style="color: #ff6432;">▲ Triangles</span> cut <span style="color: #3296ff;">● Circles</span><br>
         <span style="color: #3296ff;">● Circles</span> roll over <span style="color: #64ff50;">♦ Diamonds</span><br>
         <span style="color: #64ff50;">♦ Diamonds</span> cut <span style="color: #ff6432;">▲ Triangles</span>
@@ -1033,7 +1108,7 @@ class BoidsSystem {
         <label for="cohesionRadiusSlider">Group Attraction: <span class="control-value" id="cohesionRadius">${this.settings.cohesionRadius}</span></label>
         <input type="range" id="cohesionRadiusSlider" min="10" max="100" value="${this.settings.cohesionRadius}" aria-labelledby="cohesionRadius">
       </div>
-      <hr style="margin: 1rem 0; border: 1px solid var(--border-color);">
+      <hr style="margin: 1rem 0; border: 1px solid var(--border);">
       <div class="control-group">
         <label for="trailLengthSlider">Trail Length: <span class="control-value" id="trailLength">${this.settings.trailLength}</span></label>
         <input type="range" id="trailLengthSlider" min="0" max="50" value="${this.settings.trailLength}" aria-labelledby="trailLength">

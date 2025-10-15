@@ -29,40 +29,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">mtbonde.dev</a>
-            
-            <!-- Desktop Navigation -->
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="projects.html" class="nav-link" style="color: var(--primary);">Projects</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
-            </ul>
-            
-            <!-- Mobile Navigation -->
-            <div class="mobile-nav">
-                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
-                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu" aria-hidden="true">
-                <ul class="mobile-menu-list">
-                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-                    <li><a href="projects.html" class="mobile-nav-link" style="color: var(--primary);">Projects</a></li>
-                    <li><a href="about.html" class="mobile-nav-link">About</a></li>
-                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navigation-placeholder"></div>
 
     <!-- Projects Section -->
     <section class="section">
@@ -73,6 +40,18 @@
                 Each project highlights skills in automation, scalability, and system reliability—from homelab experiments
                 to production-focused development.
             </p>
+
+            <!-- Filter Controls -->
+            <div class="filter-container">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.5rem;">Filter by Technology</h3>
+                    <p style="font-size: 0.95rem; color: var(--muted);">Click tags to filter projects. Multiple tags show projects that match all selected tags.</p>
+                </div>
+                <div class="filter-buttons"></div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button class="clear-all-filters" style="display: none;">Clear All Filters</button>
+                </div>
+            </div>
 
             <div class="projects-grid">
                 <!-- MyFoodBudget Web App -->
@@ -519,7 +498,9 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="static/js/navigation.js"></script>
     <script src="static/js/theme-toggle.js"></script>
     <script src="static/js/mobile-nav.js"></script>
+    <script src="static/js/project-filter.js"></script>
 </body>
 </html>
