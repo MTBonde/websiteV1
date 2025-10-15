@@ -922,6 +922,119 @@ ul.tight li + li {
   border: 1px solid var(--border);
 }
 
+.filter-section {
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.filter-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.filter-section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.2s ease;
+}
+
+.filter-section-header:hover {
+  background: var(--hover-bg);
+}
+
+.filter-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.filter-section-toggle {
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.filter-section-content {
+  padding: var(--space-4);
+  background: var(--bg);
+}
+
+.job-role-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.job-role-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.job-role-filter-btn:hover {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, var(--bg));
+  transform: translateY(-2px);
+}
+
+.job-role-filter-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-1);
+}
+
+.job-role-filter-btn.active:hover {
+  background: var(--primary-600);
+}
+
+.job-role-filter-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.tag-category {
+  margin-bottom: var(--space-4);
+}
+
+.tag-category:last-child {
+  margin-bottom: 0;
+}
+
+.tag-category-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag-category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
 .filter-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -997,6 +1110,35 @@ ul.tight li + li {
 @media (max-width: 768px) {
   .filter-container {
     padding: var(--space-4);
+  }
+
+  .filter-section-header {
+    padding: var(--space-3);
+  }
+
+  .filter-section-title {
+    font-size: 1rem;
+  }
+
+  .filter-section-content {
+    padding: var(--space-3);
+  }
+
+  .job-role-filters {
+    gap: var(--space-2);
+  }
+
+  .job-role-filter-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .tag-category {
+    margin-bottom: var(--space-3);
+  }
+
+  .tag-category-title {
+    font-size: 0.875rem;
   }
 
   .filter-buttons {
