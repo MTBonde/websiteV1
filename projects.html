@@ -45,11 +45,11 @@
             <div class="filter-container">
                 <!-- Job Role Filter Section -->
                 <div class="filter-section">
-                    <button class="filter-section-header" aria-expanded="true">
+                    <button class="filter-section-header" aria-expanded="false">
                         <span class="filter-section-title">Filter by Job Role</span>
-                        <span class="filter-section-toggle">▼</span>
+                        <span class="filter-section-toggle">▶</span>
                     </button>
-                    <div class="filter-section-content">
+                    <div class="filter-section-content" style="display: none;">
                         <p style="font-size: 0.95rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">
                             Select one or more job roles to see relevant projects
                         </p>
@@ -69,11 +69,11 @@
 
                 <!-- Technology Filter Section -->
                 <div class="filter-section">
-                    <button class="filter-section-header" aria-expanded="true">
+                    <button class="filter-section-header" aria-expanded="false">
                         <span class="filter-section-title">Filter by Technology</span>
-                        <span class="filter-section-toggle">▼</span>
+                        <span class="filter-section-toggle">▶</span>
                     </button>
-                    <div class="filter-section-content">
+                    <div class="filter-section-content" style="display: none;">
                         <p style="font-size: 0.95rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">
                             Select technologies to narrow down projects (multiple technologies = projects must have all selected)
                         </p>
@@ -124,7 +124,7 @@
 
             <div class="projects-grid">
                 <!-- MyFoodBudget Web App -->
-                <div class="project-card" data-job-roles="devops">
+                <div class="project-card" id="myfoodbudget" data-job-roles="devops">
                     <h3 class="project-title">MyFoodBudget Web App</h3>
                     <p class="project-description">
                         A web app for managing recipes, calculating costs, and handling user accounts. 
@@ -165,7 +165,7 @@
                 </div>
 
                 <!-- Homelab v1 Project -->
-                <div class="project-card" data-job-roles="devops">
+                <div class="project-card" id="homelab" data-job-roles="devops">
                     <h3 class="project-title">Homelab v1 – DevOps Learning Environment</h3>
                     <p class="project-description">
                         A personal DevOps project built from scratch. Includes self-hosting services behind secure tunnels, 
@@ -207,7 +207,7 @@
                 </div>
 
                 <!-- CDM Vancouver Project -->
-                <div class="project-card" data-job-roles="game-development,project-management">
+                <div class="project-card" id="cdm-vancouver" data-job-roles="game-development,project-management">
                     <h3 class="project-title">CDM Vancouver – Runtime Unity Tools</h3>
                     <p class="project-description">
                         Exchange semester as Lead Developer on an international team in Vancouver. Built advanced editor tools 
@@ -248,7 +248,7 @@
                 </div>
 
                 <!-- NutriFinder API Project -->
-                <div class="project-card" data-job-roles="devops">
+                <div class="project-card" id="nutrifinder" data-job-roles="devops">
                     <h3 class="project-title">NutriFinder API</h3>
                     <p class="project-description">
                         An exam project built with professional software architecture and strong focus on testability. 
@@ -291,7 +291,7 @@
                 </div>
 
                 <!-- Unity DOTS Boids Project -->
-                <div class="project-card" data-job-roles="game-development">
+                <div class="project-card" id="unity-boids" data-job-roles="game-development">
                     <h3 class="project-title">Unity DOTS Boids – Flocking & Performance</h3>
                     <p class="project-description">
                         Three technical experiments exploring boid behavior and performance in Unity. 
@@ -334,7 +334,7 @@
                 </div>
 
                 <!-- TrashyShooter Project -->
-                <div class="project-card" data-job-roles="game-development">
+                <div class="project-card" id="trashyshooter" data-job-roles="game-development">
                     <h3 class="project-title">MonoGame FPS – TrashyShooter</h3>
                     <p class="project-description">
                         A networked first-person shooter built with MonoGame, implementing advanced networking techniques 
@@ -375,7 +375,7 @@
                 </div>
 
                 <!-- HorrorMaze 3D Game -->
-                <div class="project-card" data-job-roles="game-development">
+                <div class="project-card" id="horrormaze" data-job-roles="game-development">
                     <h3 class="project-title">3D Horror Game – HorrorMaze</h3>
                     <p class="project-description">
                         A complete prototype of a 3D first-person horror game built in MonoGame, with focus on complex game systems, 
@@ -415,7 +415,7 @@
                 </div>
 
                 <!-- SuperSkole Educational Game -->
-                <div class="project-card" data-job-roles="game-development,project-management">
+                <div class="project-card" id="superskole" data-job-roles="game-development,project-management">
                     <h3 class="project-title">SuperSkole – Educational Game (Internship)</h3>
                     <p class="project-description">
                         Internship project where I acted as Scrum Master and technical lead for a mixed team of developers 
@@ -457,7 +457,7 @@
                 </div>
 
                 <!-- Unity ML Snake -->
-                <div class="project-card" data-job-roles="game-development">
+                <div class="project-card" id="ml-snake" data-job-roles="game-development">
                     <h3 class="project-title">Unity ML Snake</h3>
                     <p class="project-description">
                         A learning game where the player competes against an AI-trained agent. Focus on PPO training 
@@ -497,7 +497,7 @@
                 </div>
 
                 <!-- Klimapark Prototype -->
-                <div class="project-card" data-job-roles="game-development,project-management">
+                <div class="project-card" id="klimapark" data-job-roles="game-development,project-management">
                     <h3 class="project-title">Klimapark Prototype – Interactive Learning</h3>
                     <p class="project-description">
                         Developed an interactive prototype within three weeks for an external client. 
