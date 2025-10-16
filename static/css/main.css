@@ -35,7 +35,7 @@
   --bg: #ffffff;
   --bg-elev: #f8fafc;
   --text: #0b1220;
-  --muted: #5b6475;
+  --muted: #4a5568;
   --border: #e5e7eb;
   --hover-bg: #f1f5f9;
 
@@ -54,7 +54,7 @@
   --bg: #0f172a;
   --bg-elev: #1e293b;
   --text: #eef2ff;
-  --muted: #94a3b8;
+  --muted: #a0aec0;
   --border: #334155;
   --hover-bg: #334155;
 
@@ -73,7 +73,7 @@
     --bg: #0f172a;
     --bg-elev: #1e293b;
     --text: #eef2ff;
-    --muted: #94a3b8;
+    --muted: #a0aec0;
     --border: #334155;
     --hover-bg: #334155;
 
@@ -97,6 +97,20 @@
 html {
   color-scheme: light dark;
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -254,8 +268,8 @@ a:focus-visible {
   padding: var(--space-2);
   border-radius: 50%;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -419,6 +433,13 @@ a:focus-visible {
   margin: 0 0 var(--space-4);
 }
 
+.hero-buttons {
+  margin-top: var(--space-8);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
 /* Hero Image Section */
 .hero-image {
   display: flex;
@@ -549,6 +570,37 @@ a:focus-visible {
   margin-top: var(--space-6);
 }
 
+/* ===== Page Intro (shared across content pages) ===== */
+.page-intro {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin-bottom: var(--space-12);
+  text-align: left;
+  max-width: 800px;
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.projects-cta h2 {
+  margin-bottom: var(--space-4);
+}
+
+.projects-cta-text {
+  color: var(--muted);
+  margin-bottom: var(--space-8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-cta-button {
+  display: flex;
+  justify-content: center;
+}
+
 /* ===== Lists ===== */
 ul.tight {
   list-style: disc inside;
@@ -565,6 +617,16 @@ ul.tight li + li {
 .contact-form {
   max-width: 600px;
   margin: var(--space-6) auto;
+}
+
+/* ===== Contact Page Specific ===== */
+.contact-faq {
+  margin-top: 4rem;
+}
+
+.contact-faq h2 {
+  text-align: center;
+  margin-bottom: var(--space-8);
 }
 
 .form-group {
@@ -649,8 +711,8 @@ ul.tight li + li {
   padding: var(--space-2);
   border-radius: 50%;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -813,12 +875,36 @@ ul.tight li + li {
   .hero-split {
     grid-template-columns: 1fr;
     gap: var(--space-8);
-    text-align: center;
   }
 
   .hero-content {
-    text-align: center;
     max-width: 100%;
+  }
+
+  .hero-content h1,
+  .hero-subtitle {
+    text-align: center;
+  }
+
+  .hero-content p:not(.hero-subtitle) {
+    text-align: left;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  h2,
+  h3 {
+    line-height: 1.4;
+  }
+
+  .projects-cta h2 {
+    text-align: center;
+  }
+
+  .projects-cta-text {
+    text-align: left;
   }
 
   .hero-content h1 {
