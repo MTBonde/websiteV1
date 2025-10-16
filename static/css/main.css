@@ -916,7 +916,10 @@ ul.tight li + li {
 /* ===== Project Filter Controls ===== */
 .filter-container {
   margin: var(--space-8) 0;
-  padding: var(--space-6);
+  padding-top: var(--space-6);
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  padding-bottom: 0;
   background: var(--bg-elev);
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -928,6 +931,10 @@ ul.tight li + li {
   border-radius: var(--radius);
   background: var(--bg);
   overflow: hidden;
+}
+
+.filter-section:first-of-type {
+  margin-top: 0;
 }
 
 .filter-section:last-of-type {
