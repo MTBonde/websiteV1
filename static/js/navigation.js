@@ -12,13 +12,12 @@ function loadNavigation() {
           <li><a href="projects.html" class="nav-link" data-page="projects.html">Projects</a></li>
           <li><a href="about.html" class="nav-link" data-page="about.html">About</a></li>
           <li><a href="contact.html" class="nav-link" data-page="contact.html">Contact</a></li>
-          <li><a href="fun.html" class="nav-link" data-page="fun.html">Fun</a></li>
-          <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+          <li><button class="theme-toggle" aria-label="Toggle theme"><i class="bi bi-moon-fill"></i></button></li>
         </ul>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav">
-          <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme"><i class="bi bi-moon-fill"></i></button>
           <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -33,7 +32,6 @@ function loadNavigation() {
             <li><a href="projects.html" class="mobile-nav-link" data-page="projects.html">Projects</a></li>
             <li><a href="about.html" class="mobile-nav-link" data-page="about.html">About</a></li>
             <li><a href="contact.html" class="mobile-nav-link" data-page="contact.html">Contact</a></li>
-            <li><a href="fun.html" class="mobile-nav-link" data-page="fun.html">Fun</a></li>
           </ul>
         </div>
       </div>

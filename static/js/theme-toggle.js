@@ -84,25 +84,15 @@ class ThemeToggle {
     }
 
     applyTheme(theme) {
-        console.log('Applying theme:', theme);
-        
-        // Remove existing theme classes first
-        document.documentElement.removeAttribute('data-theme');
-        
-        // Add the new theme with a slight delay to ensure the removal is processed
-        requestAnimationFrame(() => {
-            document.documentElement.setAttribute('data-theme', theme);
-            console.log('Theme applied:', theme);
-        });
+        document.documentElement.setAttribute('data-theme', theme);
     }
 
     updateToggleIcon(button) {
-        // Update button content based on current theme
         if (this.theme === 'dark') {
-            button.innerHTML = '☀️';
+            button.innerHTML = '<i class="bi bi-sun-fill"></i>';
             button.setAttribute('aria-label', 'Switch to light mode');
         } else {
-            button.innerHTML = '🌙';
+            button.innerHTML = '<i class="bi bi-moon-fill"></i>';
             button.setAttribute('aria-label', 'Switch to dark mode');
         }
     }
