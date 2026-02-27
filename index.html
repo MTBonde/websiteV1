@@ -14,7 +14,10 @@
 
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="static/css/main.css" />
-    
+    <script>
+        (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+    </script>
+
     <!-- Meta tags for SEO -->
     <meta name="description" content="Mpho Bonde - Developer, DevOps Engineer, and Problem Solver. Building solutions with modern technologies.">
     <meta name="keywords" content="developer, devops, programming, portfolio, mpho bonde">

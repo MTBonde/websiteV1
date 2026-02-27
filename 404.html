@@ -13,7 +13,10 @@
 
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="static/css/main.css" />
-    
+    <script>
+        (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+    </script>
+
     <!-- Meta tags for SEO -->
     <meta name="description" content="Page not found - Return to Mpho Bonde's portfolio">
     <meta name="robots" content="noindex, nofollow">
