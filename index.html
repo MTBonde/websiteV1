@@ -56,11 +56,14 @@
                     <p class="hero-subtitle">
                         DevOps Engineer & Developer | Infrastructure Automation & Cloud Solutions
                     </p>
+                    <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: var(--space-4);">
+                        Professionsbachelorstuderende i Softwareudvikling &mdash; dimitterer 2026
+                    </p>
                     <p>
-                        Building reliable infrastructure and streamlining deployment pipelines.
-                        Passionate about automation, containerization, and continuous improvement.
-                        From homelab experiments to production systems, I focus on creating scalable
-                        solutions that empower development teams.
+                        I build GitOps pipelines with Flux CD, manage Kubernetes clusters,
+                        and run a homelab where I deploy and monitor containerized services end-to-end.
+                        From Cloudflare Tunnels to automated CI/CD, I focus on reliable,
+                        reproducible infrastructure.
                     </p>
                     <div class="hero-buttons">
                         <a href="projects.html" class="btn">View Projects</a>
@@ -76,6 +79,11 @@
                     </div>
                 </div>
             </div>
+            <div class="scroll-hint" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
         </div>
     </section>
 
@@ -83,19 +91,21 @@
     <section class="section">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-grid featured-grid">
                 <div class="project-card">
                     <h3 class="project-title">MyFoodBudget Web App</h3>
                     <p class="project-description">
-                        Web application for recipe management and cost calculation built with Flask. 
-                        Features modular architecture using Blueprints and prepared for CI/CD deployment.
+                        Meal planning platform that generates store-grouped shopping lists with real
+                        deal matching across Danish grocery chains. Guest-first: full core flow without account.
+                        180+ tests, canonical ingredient matching, single compute endpoint architecture.
                     </p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Flask</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Blueprints</span>
-                        <span class="tag">Docker</span>
+                        <span class="tag">SQLAlchemy</span>
+                        <span class="tag">pytest</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Offer Matching</span>
                     </div>
                     <a href="projects.html#myfoodbudget" class="btn btn-secondary">Learn More</a>
                 </div>
@@ -131,6 +141,23 @@
                     </div>
                     <a href="projects.html#cdm-vancouver" class="btn btn-secondary">Learn More</a>
                 </div>
+                <div class="project-card">
+                    <h3 class="project-title">Alexor Platform - GitOps Backend</h3>
+                    <p class="project-description">
+                        Microservice backend for an Unreal Engine multiplayer game. Five .NET services in Kubernetes,
+                        managed by Flux CD with automated GitOps promotion through dev/staging/prod.
+                        Shared CI/CD workflows and custom resilience patterns across all services.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">.NET</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Flux CD</span>
+                        <span class="tag">GitOps</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Microservices</span>
+                    </div>
+                    <a href="projects.html#alexor-platform" class="btn btn-secondary">Learn More</a>
+                </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="projects.html" class="btn">See All Projects</a>
@@ -142,19 +169,81 @@
     <section class="section elev">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: var(--space-8);">Core Technologies</h2>
-            <div class="tech-tags-grid">
-                <a href="projects.html?tag=Docker" class="tech-tag">Docker</a>
-                <a href="projects.html?tag=Kubernetes" class="tech-tag">Kubernetes</a>
-                <a href="projects.html?tag=AWS" class="tech-tag">AWS</a>
-                <a href="projects.html?tag=Terraform" class="tech-tag">Terraform</a>
+            <div class="skills-grid">
+                <a href="projects.html?tag=Docker" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/docker-original.svg" alt="Docker"></div>
+                        <span class="skill-name">Docker</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Kubernetes" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/kubernetes-plain.svg" alt="Kubernetes"></div>
+                        <span class="skill-name">Kubernetes</span>
+                    </div>
+                </a>
+
+                <a href="projects.html?tag=Python" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/python-original.svg" alt="Python"></div>
+                        <span class="skill-name">Python</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Git" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/git-original.svg" alt="Git"></div>
+                        <span class="skill-name">Git</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=GitHub+Actions" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/githubactions-plain.svg" alt="GitHub Actions"></div>
+                        <span class="skill-name">GitHub Actions</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Linux" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/linux-plain.svg" alt="Linux" class="dark-invert"></div>
+                        <span class="skill-name">Linux</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=.NET" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/csharp-original.svg" alt=".NET / C#"></div>
+                        <span class="skill-name">.NET / C#</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Flask" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/flask-original.svg" alt="Flask" class="dark-invert"></div>
+                        <span class="skill-name">Flask</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Grafana" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/grafana-original.svg" alt="Grafana"></div>
+                        <span class="skill-name">Grafana</span>
+                    </div>
+                </a>
+                <a href="projects.html?tag=Prometheus" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/prometheus-original.svg" alt="Prometheus"></div>
+                        <span class="skill-name">Prometheus</span>
+                    </div>
+                </a>
+            </div>
+                <a href="projects.html?tag=Flux+CD" class="skill-link">
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="static/assets/icons/devicons/flux.svg" alt="Flux CD" class="dark-invert"></div>
+                        <span class="skill-name">Flux CD</span>
+                    </div>
+                </a>
+            </div>
+            <div class="tech-tags-grid" style="margin-top: var(--space-6);">
                 <a href="projects.html?tag=CI/CD" class="tech-tag">CI/CD</a>
-                <a href="projects.html?tag=Python" class="tech-tag">Python</a>
-                <a href="projects.html?tag=Monitoring" class="tech-tag">Monitoring</a>
-                <a href="projects.html?tag=Security" class="tech-tag">Security</a>
-                <a href="projects.html?tag=Networking" class="tech-tag">Networking</a>
                 <a href="projects.html?tag=IaC" class="tech-tag">IaC</a>
-                <a href="projects.html?tag=Linux" class="tech-tag">Linux</a>
-                <a href="projects.html?tag=Git" class="tech-tag">Git</a>
+                <a href="projects.html?tag=Networking" class="tech-tag">Networking</a>
+                <a href="projects.html?tag=Security" class="tech-tag">Security</a>
             </div>
         </div>
     </section>
@@ -169,7 +258,7 @@
                 <div class="social-links">
                     <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
                     <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="static/assets/docs/cv.pdf" target="_blank" aria-label="Download CV">CV</a>
+                    <span aria-label="CV">CV på forespørgsel</span>
                 </div>
             </div>
         </div>
@@ -180,5 +269,14 @@
     <script src="static/js/theme-toggle.js"></script>
     <script src="static/js/mobile-nav.js"></script>
     <script src="static/js/profile-carousel.js"></script>
+    <script>
+        (function() {
+            var hint = document.querySelector('.scroll-hint');
+            if (!hint) return;
+            window.addEventListener('scroll', function() {
+                hint.style.opacity = window.scrollY > 50 ? '0' : '';
+            }, { passive: true });
+        })();
+    </script>
 </body>
 </html>

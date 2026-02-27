@@ -471,6 +471,25 @@ a:focus-visible {
   opacity: 1;
 }
 
+/* ===== Scroll Hint (mobile hero) ===== */
+.scroll-hint {
+  display: none;
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  z-index: 10;
+  animation: scrollBounce 2s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+}
+
 /* ===== Skills Section ===== */
 .skills-grid {
   display: grid;
@@ -530,6 +549,17 @@ a:focus-visible {
   font-weight: var(--weight-strong);
   color: var(--text);
   font-size: var(--size-small);
+}
+
+/* Dark-mode invert for monochrome (black) SVG icons */
+[data-theme="dark"] .skill-icon img.dark-invert {
+  filter: invert(0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .skill-icon img.dark-invert {
+    filter: invert(0.85);
+  }
 }
 
 /* Tech tags grid (Core Technologies section) */
@@ -600,6 +630,11 @@ a:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-6);
   margin-top: var(--space-6);
+}
+
+/* Featured projects: always 2x2 on desktop/tablet */
+.featured-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* ===== Page Intro (shared across content pages) ===== */
@@ -969,6 +1004,15 @@ ul.tight li + li {
     gap: var(--space-4);
   }
 
+  /* Keep featured grid 2-col on tablet */
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scroll-hint {
+    display: flex;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: var(--space-3);
@@ -991,6 +1035,10 @@ ul.tight li + li {
 }
 
 @media (max-width: 480px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
   .container {
     padding: 0 var(--space-2);
   }

@@ -128,40 +128,94 @@
                 <div class="project-card" id="myfoodbudget" data-job-roles="devops">
                     <h3 class="project-title">MyFoodBudget Web App</h3>
                     <p class="project-description">
-                        A web app for managing recipes, calculating costs, and handling user accounts. 
-                        Built with layered architecture using Flask Blueprints and prepared for CI/CD. 
-                        A hobby project focusing on delivering a functional product with DevOps workflows.
+                        Meal planning web app that turns recipe intent into store-grouped shopping lists
+                        with real deal matching and savings estimates across Danish grocery chains.
+                        Guest-first architecture: the full core flow (browse recipes, plan week, view
+                        shopping list, see savings) works without an account. Built with a modular
+                        monolith architecture designed for future microservice boundaries.
+                        Developed as entrepreneur internship project, forming the foundation for bachelor thesis.
                     </p>
-                    
+
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Am Learning</h4>
                         <p style="font-size: 1rem;">
-                            This project taught me the value of modular architecture from the start. Using Flask Blueprints 
-                            and proper separation of concerns made the application much easier to maintain and extend as 
-                            requirements evolved.
+                            Building a product from scratch is teaching me that architecture decisions must serve the user,
+                            not the developer. The pivot to guest-first -- making the entire core flow work without
+                            an account -- required rethinking how data flows through the system. A single authoritative
+                            compute endpoint eliminates data mismatches structurally, not through bug fixes.
                         </p>
                     </div>
-                    
+
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
                         <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
                         <p style="font-size: 1rem;">
-                            Implementing accurate cost calculations across different recipe formats required flexible data modeling. 
-                            I designed a normalized database schema that could handle various ingredient types and measurement 
-                            units while maintaining calculation accuracy.
+                            Matching recipe ingredients to real store offers requires a canonical ingredient system
+                            that normalizes across different naming conventions. Designing this system to be
+                            transparent about its limitations (showing coverage and match status per item)
+                            is critical for user trust.
                         </p>
                     </div>
-                    
+
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Flask</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Blueprints</span>
-                        <span class="tag">Docker Compose</span>
-                        <span class="tag">CI/CD</span>
+                        <span class="tag">SQLAlchemy</span>
+                        <span class="tag">pytest</span>
+                        <span class="tag">Playwright</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Offer Matching</span>
+                        <span class="tag">Guest-first</span>
                     </div>
                     
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/MyFoodBudget_v0.1" target="_blank" class="btn">GitHub</a>
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Privat repository</span>
+                    </div>
+                </div>
+
+                <!-- Alexor Platform - GitOps Microservice Backend -->
+                <div class="project-card" id="alexor-platform" data-job-roles="devops">
+                    <h3 class="project-title">Alexor Platform - GitOps Microservice Backend</h3>
+                    <p class="project-description">
+                        Backend platform for an Unreal Engine multiplayer game, built as a scalable microservice architecture
+                        with a fully automated GitOps delivery pipeline. Five .NET services (Auth, Session, Registry, Relay,
+                        GameServer) running in Kubernetes, managed by Flux CD with automated promotion through
+                        dev/staging/prod environments.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <p style="font-size: 1rem;">
+                            Designing a GitOps workflow from scratch taught me that automation is as much about organizational
+                            discipline as it is about tooling. Conventional commits, manifest ownership, and review processes
+                            are what make the pipeline trustworthy.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <p style="font-size: 1rem;">
+                            Coordinating multiple independently versioned services required a centralized CI/CD architecture.
+                            I built a shared workflow repository and a custom NuGet package (HAGI.Robust) with retry,
+                            circuit breaker, and timeout patterns, applied consistently across all services.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">.NET</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Flux CD</span>
+                        <span class="tag">GitOps</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Microservices</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/PB_Alexor-GitOps" target="_blank" class="btn">GitOps Repo</a>
+                        <a href="https://github.com/MTBonde/PB_Alexor-Workflows" target="_blank" class="btn btn-secondary">Workflows</a>
                     </div>
                 </div>
 
@@ -563,7 +617,7 @@
                 <div class="social-links">
                     <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
                     <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="static/assets/docs/cv.pdf" target="_blank" aria-label="Download CV">CV</a>
+                    <span aria-label="CV">CV på forespørgsel</span>
                 </div>
             </div>
         </div>

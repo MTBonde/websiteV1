@@ -6,14 +6,23 @@
 
 ### 1. **MyFoodBudget Web App**
 
-**Repo:** [MyFoodBudget\_v0.1](https://github.com/MTBonde/MyFoodBudget_v0.1)
-**Tags:** `Python`, `Flask`, `MongoDB`, `Blueprints`, `Docker Compose`, `CI/CD`
+**Repo:** [MyFoodBudget\_v0.1](https://github.com/MTBonde/MyFoodBudget_v0.1) *(private)*
+**Tags:** `Python`, `Flask`, `SQLAlchemy`, `pytest`, `Playwright`, `REST API`, `Offer Matching`, `Guest-first`
 
-A web app for managing recipes, calculating costs, and handling user accounts. Built with a layered architecture using Flask Blueprints and prepared for CI/CD. A hobby project with a focus on delivering a functional product and supporting DevOps workflows.
+Meal planning web app that turns recipe intent into store-grouped shopping lists with real deal matching and savings estimates across Danish grocery chains. Guest-first architecture: the full core flow works without an account. Built with a modular monolith architecture. Canonical ingredient system (52 ingredients, 349 aliases, 34 match rules), single authoritative compute endpoint, 180+ tests including Playwright E2E. Developed as entrepreneur internship project, forming the foundation for bachelor thesis.
 
 ---
 
-### 2. **Homelab v1 – DevOps Learning Environment**
+### 2. **Alexor Platform - GitOps Microservice Backend**
+
+**Repos:** [PB\_Alexor-GitOps](https://github.com/MTBonde/PB_Alexor-GitOps), [PB\_Alexor-Workflows](https://github.com/MTBonde/PB_Alexor-Workflows)
+**Tags:** `.NET`, `Kubernetes`, `Flux CD`, `GitOps`, `GitHub Actions`, `Prometheus`, `Grafana`, `RabbitMQ`, `Docker`, `Microservices`
+
+Backend platform for an Unreal Engine multiplayer game, built as a scalable microservice architecture with a fully automated GitOps delivery pipeline. Five .NET services (Auth, Session, Registry, Relay, GameServer) running in Kubernetes, managed by Flux CD with automated promotion through dev/staging/prod environments. Shared workflow repository and custom NuGet package (HAGI.Robust) with retry, circuit breaker, and timeout patterns.
+
+---
+
+### 3. **Homelab v1 – DevOps Learning Environment**
 
 **Repo:** [my-first-homelab](https://github.com/MTBonde/my-first-homelab)
 **Tags:** `Ubuntu`, `Docker`, `CI/CD`, `GitHub Actions`, `Cloudflare Tunnel`, `Self-hosting`, `DevOps`, `Networking`
