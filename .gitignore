@@ -55,3 +55,6 @@ coverage/
 
 # Deployment files
 .deploy/
+
+# Private strategy/planning docs (never committed -- job-hunt strategy, positioning notes)
+_private/
