@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function initializeProjectFilter()
     const activeTechnologyTags = new Set();
 
     const tagCategoryMapping = {
-        devops: ['CI/CD', 'Docker', 'Docker Compose', 'GitHub Actions', 'Cloudflare Tunnel', 'Self-hosting', 'Ubuntu', 'Networking', 'DevOps'],
-        backend: ['Python', 'Flask', 'Blueprints', '.NET', 'C#', 'MongoDB', 'REST API', 'TDD', 'Testcontainers'],
-        gamedev: ['Unity', 'MonoGame', '3D', 'VR', 'Editor Tooling', 'Runtime Tools', 'Multiplayer', 'Sound Design', 'User Testing', 'Level Design', 'Educational Games', 'Educational Game', 'Prototype', 'Rapid Development', 'Funding'],
-        performance: ['Performance', 'Compute Shaders', 'GPU', 'HLSL', 'DOTS', 'ECS', 'Lag Compensation', 'Snapshot Interpolation'],
-        ai: ['ML-Agents', 'PPO', 'Reinforcement Learning', 'Machine Learning', 'AI vs Player'],
-        leadership: ['Lead Dev', 'Scrum Master', 'Product Owner', 'Project Manager', 'Team Lead', 'Leadership', 'International Collaboration', 'Scrum']
+        devops: ['Docker', 'Docker Compose', 'Kubernetes', 'Flux CD', 'GitOps', 'Kustomize', 'sealed-secrets', 'GitHub Actions', 'CI/CD', 'Cloudflare Tunnel', 'Linux', 'systemd', 'Ansible', 'Prometheus', 'Grafana', 'Self-hosting', 'Security'],
+        backend: ['Python', 'Flask', 'PostgreSQL', '.NET', 'C#', 'RabbitMQ', 'Redis', 'MongoDB', 'ASP.NET Core'],
+        performance: ['Unity DOTS', 'ECS', 'Burst', 'Spatial hashing', 'OpenGL', 'GLSL', 'Compute shaders', 'Performance', 'Lag compensation', 'Snapshot interpolation'],
+        gamedev: ['Unity', 'MonoGame', 'Multiplayer', 'Runtime tooling', 'Level editor', '3D rendering'],
+        ai: ['ML-Agents', 'Reinforcement Learning', 'AI-orchestrated'],
+        leadership: ['Scrum Master', 'Team leadership', 'TDD', 'Client communication', 'User testing']
     };
 
     function extractAllTagsFromProjects() {
