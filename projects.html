@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - Mpho Bonde</title>
+    <title>Projects - M. T. Bonde</title>
     
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +18,9 @@
     </script>
 
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Portfolio of projects by Mpho Bonde - showcasing development and DevOps work.">
-    <meta name="keywords" content="projects, portfolio, development, devops, coding, mpho bonde">
-    <meta name="author" content="Mpho Bonde">
+    <meta name="description" content="Projects by M. T. Bonde - systems, GitOps, backend, and performance work, built and run in production.">
+    <meta name="keywords" content="projects, portfolio, systems engineer, devops, gitops, m t bonde">
+    <meta name="author" content="M. T. Bonde">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
@@ -40,9 +40,9 @@
         <div class="container">
             <h1>Projects & Experience</h1>
             <p class="page-intro">
-                A portfolio demonstrating DevOps practices, infrastructure automation, and technical problem-solving.
-                Each project highlights skills in automation, scalability, and system reliability—from homelab experiments
-                to production-focused development.
+                Projects I designed and built, from low-level performance to GitOps in production, shown oldest to newest.
+                The thread across all of them: I dig to the bottom of the system, deeper than the task asked for, and own the
+                technical foundation. It ends at MyFoodBudget, a whole SaaS I built and run in production, solo.
             </p>
 
             <!-- Filter Controls -->
@@ -127,93 +127,531 @@
             </div>
 
             <div class="projects-grid">
-                <!-- MyFoodBudget Web App -->
-                <div class="project-card" id="myfoodbudget" data-job-roles="devops">
-                    <h3 class="project-title">MyFoodBudget Web App</h3>
+                <!-- 1. HorrorMaze (2023, datamatiker 1st-year) -->
+                <div class="project-card" id="horrormaze" data-job-roles="game-development">
+                    <h3 class="project-title">HorrorMaze - 3D Horror Game in MonoGame</h3>
+                    <p class="project-meta">Datamatiker 1st-year exam &middot; 2023 &middot; 2 person team &middot; grade 12</p>
                     <p class="project-description">
-                        Meal planning web app that turns recipe intent into store-grouped shopping lists
-                        with real deal matching and savings estimates across Danish grocery chains.
-                        Guest-first architecture: the full core flow (browse recipes, plan week, view
-                        shopping list, see savings) works without an account. Built with a modular
-                        monolith architecture designed for future microservice boundaries.
-                        Developed as entrepreneur internship project, forming the foundation for bachelor thesis.
+                        A first-person 3D horror game made in MonoGame, a 2D framework with no built-in 3D camera, no model
+                        tooling, and no shaders. When we asked around if 3D was even doable in it, people said it was too hard
+                        or impossible. We did it anyway. Procedurally generated maze, a monster that hunts you with A-star
+                        pathfinding on its own thread, sprint mechanics, and spatial audio tied to game state. Released on itch.io.
                     </p>
 
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Am Learning</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
                         <p style="font-size: 1rem;">
-                            Building a product from scratch is teaching me that architecture decisions must serve the user,
-                            not the developer. The pivot to guest-first -- making the entire core flow work without
-                            an account -- required rethinking how data flows through the system. A single authoritative
-                            compute endpoint eliminates data mismatches structurally, not through bug fixes.
+                            I built the part that makes the 3D work: the camera and the matrix math that projects a 3D world
+                            onto a 2D screen (view and projection transforms, FOV, rotation), plus the procedural maze generation
+                            with depth-first search and the audio system. My teammate built the layer on top: the component
+                            architecture, player controller, monster movement, collision, and the 3D models.
                         </p>
                     </div>
 
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
                         <p style="font-size: 1rem;">
-                            Matching recipe ingredients to real store offers requires a canonical ingredient system
-                            that normalizes across different naming conventions. Designing this system to be
-                            transparent about its limitations (showing coverage and match status per item)
-                            is critical for user trust.
+                            MonoGame gives you nothing for 3D, so I had to build the pipeline by hand: a custom camera with
+                            explicit world-view-projection matrices. This is where I learned that when the engine does not do
+                            it for you, you can still do it yourself if you understand the math underneath. That stuck with me.
                         </p>
                     </div>
 
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">SQLAlchemy</span>
-                        <span class="tag">pytest</span>
-                        <span class="tag">Playwright</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">Offer Matching</span>
-                        <span class="tag">Guest-first</span>
+                        <span class="tag">MonoGame</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">3D rendering</span>
+                        <span class="tag">Performance</span>
                     </div>
-                    
+
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <span class="btn" style="background-color: var(--muted); cursor: default;">Privat repository</span>
+                        <a href="https://github.com/MTBonde/HorrorMaze" target="_blank" class="btn">GitHub</a>
                     </div>
                 </div>
 
-                <!-- Alexor Platform - GitOps Microservice Backend -->
-                <div class="project-card" id="alexor-platform" data-job-roles="devops">
-                    <h3 class="project-title">Alexor Platform - GitOps Microservice Backend</h3>
+                <!-- 2. TrashyShooter (2023, datamatiker netcode) -->
+                <div class="project-card" id="trashyshooter" data-job-roles="game-development">
+                    <h3 class="project-title">TrashyShooter - Networked 3D Multiplayer FPS</h3>
+                    <p class="project-meta">Datamatiker &middot; 2023 &middot; 2 person team (50/50) &middot; 11 day sprint</p>
                     <p class="project-description">
-                        Backend platform for an Unreal Engine multiplayer game, built as a scalable microservice architecture
-                        with a fully automated GitOps delivery pipeline. Five .NET services (Auth, Session, Registry, Relay,
-                        GameServer) running in Kubernetes, managed by Flux CD with automated promotion through
-                        dev/staging/prod environments.
+                        A 3D multiplayer first-person shooter in MonoGame, with a dedicated authoritative game server, multiple
+                        clients, and a scoreboard API. The hard part is the networking: keeping a fast game in sync across clients
+                        without it feeling laggy or letting players cheat. We built the full set of techniques for that in 11 days.
                     </p>
 
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
                         <p style="font-size: 1rem;">
-                            Designing a GitOps workflow from scratch taught me that automation is as much about organizational
-                            discipline as it is about tooling. Conventional commits, manifest ownership, and review processes
-                            are what make the pipeline trustworthy.
+                            I worked mostly in the netcode layer: the authoritative UDP server, snapshot broadcasting at 30Hz, and
+                            the lag compensation that rewinds the world to the moment a shot was fired before checking the hit. The
+                            client side has prediction and reconciliation, so the player moves instantly and then corrects against
+                            the server, plus snapshot interpolation so other players move smoothly.
                         </p>
                     </div>
 
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
                         <p style="font-size: 1rem;">
-                            Coordinating multiple independently versioned services required a centralized CI/CD architecture.
-                            I built a shared workflow repository and a custom NuGet package (HAGI.Robust) with retry,
-                            circuit breaker, and timeout patterns, applied consistently across all services.
+                            We made the server authoritative: it owns the game state, clients only send input. That stops cheating
+                            at the source, but it creates a lag problem, so we added server-side lag compensation, rewinding to
+                            historical snapshots to judge shots fairly. It is a prototype, not a finished product (11 days), so some
+                            parts like acknowledgement and error handling are partial. The core netcode works.
                         </p>
                     </div>
 
                     <div class="project-tags">
+                        <span class="tag">MonoGame</span>
+                        <span class="tag">C#</span>
                         <span class="tag">.NET</span>
+                        <span class="tag">Multiplayer</span>
+                        <span class="tag">Lag compensation</span>
+                        <span class="tag">Snapshot interpolation</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/TrashyShooter" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 3. Fresh Tracks / CDM Vancouver (2024, datamatiker exchange) -->
+                <div class="project-card" id="cdm-vancouver" data-job-roles="game-development">
+                    <h3 class="project-title">Fresh Tracks (CDM Vancouver) - Runtime Level Editor Tools</h3>
+                    <p class="project-meta">Datamatiker exchange, Centre for Digital Media &middot; 2024 &middot; international team</p>
+                    <p class="project-description">
+                        A semester abroad in Vancouver, enrolled through Simon Fraser University, working at the Centre for Digital
+                        Media. CDM puts students from different backgrounds into teams that build for real clients. Our client was
+                        Buffalo Buffalo, a Vancouver game studio, and we worked on an early version of Fresh Tracks, a game that has
+                        since been released.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            Our group of six split into two tracks. Zimo and I were the code team, working on the game's runtime
+                            level editor. The editor is part of the game itself, so it has to work in play mode. Zimo built a runtime
+                            gizmo for moving objects; I built multi-selection and grouping, so a designer could work on many objects
+                            at once. Together those two pieces cut level design time in half in the first test. We agreed I would take
+                            lead on our small code team.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Working with the client</h4>
+                        <p style="font-size: 1rem;">
+                            A real client with real users, so I ran user interviews and usability tests and built the features around
+                            that feedback. The studio's founder wrote afterward:
+                            <em>"His work on introducing multi-selection and grouping functionality has been particularly noteworthy,
+                            as it directly responded to user feedback and significantly improved the level design process."</em>
+                            &mdash; Patrick Owens, Founder, Buffalo Buffalo.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Runtime tooling</span>
+                        <span class="tag">Level editor</span>
+                        <span class="tag">User testing</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+
+                <!-- 4. SuperSkole (2024, PBA praktik) -->
+                <div class="project-card" id="superskole" data-job-roles="game-development,project-management">
+                    <h3 class="project-title">SuperSkole - Educational Game (Internship)</h3>
+                    <p class="project-meta">PBA internship &middot; 2024 &middot; Scrum Master and technical lead</p>
+                    <p class="project-description">
+                        An educational game built in Unity during my internship. I was Scrum Master and technical lead, and I also
+                        coded. My job was to lead the team, mentor where it was needed, and get the project shipped. It ended up
+                        about 40% over its original scope.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built and led</h4>
+                        <p style="font-size: 1rem;">
+                            This is the one project where I led more than I built, though I did both. I ran the Scrum process, planned
+                            the work, and mentored people so they could do real work and see how it fit the whole. The skill here is
+                            getting a team to deliver together and still ship the thing. We did, and then some.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key takeaway</h4>
+                        <p style="font-size: 1rem;">
+                            I already knew I step into the lead role naturally. This was the version of it that matters: getting good
+                            work out of a whole team, supporting the people who needed it, without lowering the bar on what we delivered.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Scrum Master</span>
+                        <span class="tag">Team leadership</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+
+                <!-- 5. KlimaPark (2024, PBA Scrum course) -->
+                <div class="project-card" id="klimapark" data-job-roles="game-development,project-management">
+                    <h3 class="project-title">KlimaPark - Interactive Learning Prototype</h3>
+                    <p class="project-meta">PBA, Scrum course &middot; 2024 &middot; Scrum Master, client contact, developer</p>
+                    <p class="project-description">
+                        An interactive learning game in Unity for an external client, KlimaPark Nordvestjylland, to teach school kids
+                        what a climate park is and how it works. This was the Scrum course, so the real point was running proper Scrum,
+                        by the book, with a real client. I was Scrum Master, the main client contact, and I coded. We delivered a
+                        working alpha within a three week deadline.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I did</h4>
+                        <p style="font-size: 1rem;">
+                            I ran the Scrum process and I was the one who talked to the client. That second part matters more than it
+                            sounds. A lot of developers can build but cannot sit across from a customer, understand what they actually
+                            need, and turn it into something shippable. I did both: kept the sprints honest and kept the client in the loop.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key takeaway</h4>
+                        <p style="font-size: 1rem;">
+                            Doing Scrum properly with a real client, not a pretend one, is different from doing it in a classroom
+                            exercise. Being the client contact taught me to translate between what a customer says they want and what
+                            the team can actually build in three weeks.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Scrum Master</span>
+                        <span class="tag">Client communication</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
+                    </div>
+                </div>
+
+                <!-- 6. Survive the DOiTS (2024, datamatiker hovedopgave, FLAGSHIP) -->
+                <div class="project-card" id="survive-the-doits" data-job-roles="game-development">
+                    <h3 class="project-title">Survive the DOiTS - Boids Performance at Scale (Unity DOTS)</h3>
+                    <p class="project-meta">Datamatiker main thesis (hovedopgave) &middot; 2024 &middot; solo &middot; grade 12</p>
+                    <p class="project-description">
+                        My datamatiker main thesis. A first-person shooter built to push Unity DOTS to its limit by simulating huge
+                        swarms of flocking boids (separation, alignment, cohesion). The point was not the game, it was the performance:
+                        how many agents can you simulate at 60 FPS, and what does it take to get there. I reached 35,000 boids at a
+                        stable 60 FPS. The goal was 10,000, so it beat that by more than three times.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            The whole thing, solo. The boid simulation, the spatial hashmap, the job pipeline, the game on top. Finding
+                            each boid's neighbours by checking it against every other boid is O(n squared), which falls apart at scale.
+                            I built a spatial hashmap that splits the world into grid cells, so each boid only checks the cells next to
+                            it, bringing the neighbour search down to roughly O(n) on average. The thesis has the full Big-O analysis in
+                            an appendix.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            I went with Unity DOTS instead of normal Unity (MonoBehaviour). DOTS uses an entity component system that
+                            stores data tightly together and lets the Job system run work across all CPU cores without locks, and the
+                            Burst compiler turns it into native machine code. The move system handled 2,500 boids at 10.26ms without
+                            Burst, and 35,000 boids at 0.014ms with it. This is CPU work through Jobs and Burst, not GPU.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Unity DOTS</span>
+                        <span class="tag">ECS</span>
+                        <span class="tag">Burst</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Spatial hashing</span>
+                        <span class="tag">Performance</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/SurviveTheDOiTS" target="_blank" class="btn">GitHub</a>
+                        <a href="fun.html" class="btn btn-secondary">Live boids demo</a>
+                    </div>
+                </div>
+
+                <!-- 7. Unity ML Snake (2025, Dania school) -->
+                <div class="project-card" id="ml-snake" data-job-roles="game-development">
+                    <h3 class="project-title">Unity ML Snake - Reinforcement Learning</h3>
+                    <p class="project-meta">Datamatiker (Dania) &middot; 2025 &middot; 3 person team</p>
+                    <p class="project-description">
+                        A Unity game where a snake is driven by an AI agent that learns to play through reinforcement learning, using
+                        Unity ML-Agents. It runs human against AI, so you can watch the trained agent play next to a person. A two week
+                        school project about machine learning with Unity.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            I worked on the ML side. I built the agent itself (its observations, rewards, and actions) and ran the
+                            training, including the long training sessions to get it to actually play well. I also fixed the game state
+                            so training could run clean. The other two handled more of the game loop and infrastructure.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            The hard part of reinforcement learning is the reward design. The agent only learns what you reward it for,
+                            so a bad reward function teaches the wrong behaviour. Most of the work was tuning the rewards and the training
+                            setup, then running long sessions and checking what the agent actually learned.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">ML-Agents</span>
+                        <span class="tag">Reinforcement Learning</span>
+                        <span class="tag">C#</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/Tarkonner/ML_Snake" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 8. YinYang engine (2025, PBA graphics) -- NEW CARD -->
+                <div class="project-card" id="yinyang-engine" data-job-roles="game-development">
+                    <h3 class="project-title">YinYang - Real-time 3D Graphics Engine (OpenGL)</h3>
+                    <p class="project-meta">PBA, graphics course &middot; 2025 &middot; 2 person team</p>
+                    <p class="project-description">
+                        A custom real-time 3D graphics engine in C# on OpenTK (OpenGL 4.6). The assignment was to pick one graphics
+                        topic and implement it. We built a whole engine instead and implemented all of them. It runs a cave scene with
+                        a sun, point and spot lights, water, particle systems, god rays, and reflections, all driven by a modular render
+                        pipeline. About 9,500 lines of C# and 39 shaders.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            I built the particle systems (a waterfall mist and magic particles, both running on compute shaders), the
+                            post-processing effects (god rays and bloom), and most of the scene construction. My teammate did the water
+                            surface shader, the shadows, and the general lighting model. The render pipeline and engine core we shared.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            OpenGL gives you the raw API and nothing else, so everything above it we built ourselves. The engine is a
+                            chain of render passes you can compose: shadow pass, scene pass, bloom, god rays, reflection capture. Adding
+                            a new effect means adding a pass, not rewriting the renderer. The harder pieces used geometry shaders
+                            (rendering all six faces of a shadow cubemap in one pass) and compute shaders (updating particles on the GPU).
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">OpenGL</span>
+                        <span class="tag">GLSL</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Compute shaders</span>
+                        <span class="tag">Performance</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Private repository</span>
+                    </div>
+                </div>
+
+                <!-- 9. NutriFinder (2025, PBA software quality) -->
+                <div class="project-card" id="nutrifinder" data-job-roles="devops">
+                    <h3 class="project-title">NutriFinder - REST API with a Quality Pipeline</h3>
+                    <p class="project-meta">PBA, software quality exam &middot; 2025 &middot; 2 person team</p>
+                    <p class="project-description">
+                        A REST API and CLI client for nutrition lookups, built in ASP.NET Core. It checks a MongoDB cache first, then
+                        falls back to external sources (the Danish DTU food database and OpenFoodFacts). The API was not really the
+                        point: this was the software quality exam, so the point was how it was built. Testing, CI/CD, and an architecture
+                        you can actually test.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            My teammate and I split it. I owned the CI/CD and the containerisation: the Azure DevOps pipeline with
+                            automated tests on every push and pull request, a coverage gate that blocks a merge below 80%, the Docker
+                            setup, and Docker Compose for local and test environments. I also built the client and the integration and
+                            end to end tests. My teammate focused more on the server architecture and the testability design.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            We drove the whole thing test first (TDD). The project ended on 44 tests with 96% line coverage, split across
+                            unit, integration, and end to end tests. The integration tests run against a real MongoDB using Testcontainers,
+                            so they test the actual database, not a mock. The report is honest about it: high coverage means the code was
+                            tested, not that it is good code. Tests are protection against regressions, not a number to chase.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">ASP.NET Core</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">TDD</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Docker</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/PB-SK-Xamen-NutriFinder" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 10. Homelab v1 (2025, personal) -->
+                <div class="project-card" id="homelab" data-job-roles="devops">
+                    <h3 class="project-title">Homelab - Self-hosted from Scratch</h3>
+                    <p class="project-meta">Personal project &middot; 2025 &middot; solo</p>
+                    <p class="project-description">
+                        My first self-hosted server, and where DevOps started for me. I took NutriFinder, my exam project, and put it
+                        live in production on my own machine, reachable from the internet at api.mtbonde.dev. Self-contained on purpose,
+                        so I could focus on what it actually takes to host and run something live.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            The full path from code to a running, public service. Domain and DNS through Cloudflare, multi-stage
+                            Dockerfiles, a GitHub Actions pipeline that builds and tests on every push, Docker Compose plus Watchtower on
+                            the server, and a Cloudflare Tunnel with a systemd service so it survives a reboot.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            Port forwarding was unreliable, so I switched to a Cloudflare Tunnel. It reaches out from the server, so there
+                            are no open inbound ports on my home network. That same pattern (tunnel, Docker, CI/CD, auto-update) became
+                            the base I carried into every later infrastructure project, including MyFoodBudget.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Docker Compose</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Cloudflare</span>
+                        <span class="tag">Cloudflare Tunnel</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">systemd</span>
+                        <span class="tag">Self-hosting</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://github.com/MTBonde/my-first-homelab" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 11. Offline Bootstrap USB (2025, personal) -- NEW CARD -->
+                <div class="project-card" id="bootstrap-usb" data-job-roles="devops">
+                    <h3 class="project-title">Offline Bootstrap USB - Hardening Before First Boot</h3>
+                    <p class="project-meta">Personal project &middot; 2025 &middot; solo</p>
+                    <p class="project-description">
+                        A USB stick that hardens a fresh Linux server before it ever touches the network. There is a window between
+                        installing an OS with network access and finishing the hardening where the machine is exposed. This closes that
+                        window by doing the hardening first, offline. You plug in the USB, run one Ansible playbook with no internet, and
+                        the server comes up already locked down.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            An Ansible project that runs fully offline. Ansible normally needs to install things from the internet, so I
+                            packaged a full Python virtualenv with Ansible onto the USB. The playbook is eight roles: create the user and
+                            SSH key, harden SSH, set up a UFW firewall and fail2ban, remove unwanted packages, configure unattended security
+                            updates, apply kernel hardening through sysctl, and set up auditd to watch auth and sudo. Secrets handled with
+                            SOPS and an age key. The whole thing is idempotent.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            The point is sequence. Most hardening happens after a machine is already online, which leaves a gap. I wanted
+                            the machine hardened before it has network access at all, so the hardening had to run offline. That is why
+                            Ansible is packaged on the USB instead of pulled from the internet. A small idea with a real security payoff:
+                            there is no exposed window, because the box is locked down before it is reachable.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Personal tooling, no public repo</span>
+                    </div>
+                </div>
+
+                <!-- 12. Alexor (2025, PBA SI/USS exam) -->
+                <div class="project-card" id="alexor-platform" data-job-roles="devops">
+                    <h3 class="project-title">Alexor - GitOps Microservice Backend</h3>
+                    <p class="project-meta">PBA, System Integration exam &middot; 2025 &middot; 2 person team &middot; grade 12</p>
+                    <p class="project-description">
+                        A backend platform for an Unreal Engine multiplayer game, built as microservices on Kubernetes with a fully
+                        automated GitOps delivery pipeline. Six services (auth, session, registry, relay, chat, and the game server) talk
+                        over RabbitMQ and use Redis for caching. The course had two parts: a prep project (HAGI) where we built the backend
+                        services for reuse, and the graded exam (Alexor) where I built the GitOps and infrastructure layer on top.
+                    </p>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
+                        <p style="font-size: 1rem;">
+                            The whole DevOps and GitOps side, end to end: the Flux setup with Kustomize, sealed-secrets so credentials are
+                            safe to commit, and a GitHub Actions pipeline with semantic versioning that builds, tests, and pushes images,
+                            then lets Flux promote them through dev, staging, and prod. I also wrote a custom NuGet package (HAGI.Robust)
+                            that adds resilience to every service: retries with backoff, circuit breakers, timeouts, and a startup gate. My
+                            teammate built the Unreal game server and its separate build pipeline.
+                        </p>
+                    </div>
+
+                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
+                        <p style="font-size: 1rem;">
+                            I applied the CAP theorem per service instead of one rule for all: auth and the game server are consistency-first,
+                            session and registry are availability-first with eventual consistency. And the resilience: Kubernetes probes heal
+                            at the container level, but that does not help a service that is up but talking to a dependency that is down, so
+                            HAGI.Robust adds that protection at the application level. To be clear about scope, Alexor is a proof of concept on
+                            a single node. The patterns are production-grade, the deployment is a POC.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
                         <span class="tag">Kubernetes</span>
                         <span class="tag">Flux CD</span>
                         <span class="tag">GitOps</span>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Kustomize</span>
+                        <span class="tag">sealed-secrets</span>
                         <span class="tag">GitHub Actions</span>
-                        <span class="tag">Prometheus</span>
-                        <span class="tag">Grafana</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">.NET</span>
+                        <span class="tag">C#</span>
                         <span class="tag">RabbitMQ</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Microservices</span>
+                        <span class="tag">Redis</span>
                     </div>
 
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
@@ -222,386 +660,135 @@
                     </div>
                 </div>
 
-                <!-- Homelab v1 Project -->
-                <div class="project-card" id="homelab" data-job-roles="devops">
-                    <h3 class="project-title">Homelab v1 – DevOps Learning Environment</h3>
+                <!-- 13. MyFoodBudget (2024-now, PBA thesis, FLAGSHIP / capstone) -->
+                <div class="project-card" id="myfoodbudget" data-job-roles="devops">
+                    <h3 class="project-title">MyFoodBudget - A SaaS in Production, Built Solo</h3>
+                    <p class="project-meta">PBA bachelor thesis &middot; 2024 to now &middot; solo, AI-orchestrated &middot; grade 12 &middot; live</p>
                     <p class="project-description">
-                        A personal DevOps project built from scratch. Includes self-hosting services behind secure tunnels, 
-                        DNS configuration, versioned deployments, and documented CI/CD via GitHub Actions. 
-                        Actively used for hands-on DevOps practice.
+                        A meal planning SaaS that turns recipe choices into store-grouped shopping lists with real deal matching and savings
+                        across Danish grocery chains. Guest-first, so the whole core flow works without an account. It started as my internship
+                        and bachelor thesis and kept growing into a tool other families could use too. I built it alone and I run it in production
+                        on my own infrastructure. This is the full thing, from the database to the running service, not a demo.
                     </p>
-                    
+                    <p class="project-description">
+                        I build it the way I work now: I direct an AI as my lead developer and own every architectural decision myself. The
+                        decisions are mine and they are documented in the project's ADRs. The AI does a lot of the typing, I do the design, the
+                        review, and the calls. MyFoodBudget is the proof that this way of working ships real, running software.
+                    </p>
+
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
                         <p style="font-size: 1rem;">
-                            Running production-like infrastructure at home taught me about operational concerns that don't surface in development. 
-                            Understanding network security, automated deployments, and monitoring became much more practical through real-world application.
+                            Every layer, solo. PostgreSQL with migrations for the data. A Flask backend built as a modular monolith, where each
+                            module is a future microservice, with one authoritative compute endpoint so the numbers can never disagree across the
+                            app. A mobile-first frontend. Then the operations: two Kubernetes clusters (production and staging) on my own VPS,
+                            GitOps with Flux and Kustomize, sealed-secrets, image automation that auto-deploys staging and holds production for a
+                            manual promote, a CI pipeline with semantic versioning, full monitoring (Prometheus, Grafana, Alertmanager to Discord,
+                            uptime checks), and an encrypted nightly backup pipeline to object storage. The test suite is over 2000 tests.
                         </p>
                     </div>
-                    
+
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key technical decision</h4>
                         <p style="font-size: 1rem;">
-                            Balancing security with convenience in a home environment required creative solutions. 
-                            I implemented Cloudflare tunneling, automated certificate management, and CI/CD workflows 
-                            while keeping the system maintainable and well-documented.
+                            The one I lean on most is the single authoritative compute endpoint. Early on, prices and savings could disagree
+                            between the recipe view, the shopping list, and the dashboard, because each one computed its own numbers. Instead of
+                            fixing those mismatches one bug at a time, I moved all the computation behind one endpoint that every view calls. After
+                            that the numbers cannot disagree, because there is only one source for them. Fix the cause in the architecture, not the
+                            symptom in the code.
                         </p>
                     </div>
-                    
+
                     <div class="project-tags">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag">Docker</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Flux CD</span>
+                        <span class="tag">GitOps</span>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Kustomize</span>
+                        <span class="tag">sealed-secrets</span>
                         <span class="tag">CI/CD</span>
                         <span class="tag">GitHub Actions</span>
-                        <span class="tag">Cloudflare Tunnel</span>
-                        <span class="tag">Self-hosting</span>
-                        <span class="tag">DevOps</span>
-                        <span class="tag">Networking</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">nginx</span>
+                        <span class="tag">Cloudflare</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">AI-orchestrated</span>
                     </div>
-                    
+
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/my-first-homelab" target="_blank" class="btn">GitHub</a>
+                        <a href="https://myfoodbudget.dk" target="_blank" class="btn">Live at myfoodbudget.dk</a>
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Private repository</span>
                     </div>
                 </div>
 
-                <!-- CDM Vancouver Project -->
-                <div class="project-card" id="cdm-vancouver" data-job-roles="game-development,project-management">
-                    <h3 class="project-title">CDM Vancouver – Runtime Unity Tools</h3>
+                <!-- 14. BCS (2026-now, personal, capstone) -->
+                <div class="project-card" id="bcs" data-job-roles="devops">
+                    <h3 class="project-title">BCS - The System That Makes My AI a Reliable Lead Developer</h3>
+                    <p class="project-meta">Personal project &middot; 2026 to now &middot; solo &middot; ongoing</p>
                     <p class="project-description">
-                        Exchange semester as Lead Developer on an international team in Vancouver. Built advanced editor tools 
-                        for VR company Buffalo Buffalo, including runtime manipulation, gizmos, and custom UI windows. 
-                        Reduced client's level production time from over a month to approximately two weeks.
+                        Everyone can use an AI tool now. BCS is the system I built so I can direct one like a reliable lead
+                        developer, not just chat with it. It is hooks, skills, a memory system, and role-based agents that turn a
+                        general AI into a disciplined teammate that follows my rules and ships real work. I own the architecture
+                        and the decisions, the AI is a strong pair of hands, and MyFoodBudget is what that collaboration produced:
+                        a whole SaaS in production.
                     </p>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
-                        <p style="font-size: 1rem;">
-                            Leading an international team taught me the importance of clear communication and documentation. 
-                            Building tools that dramatically improve workflows requires deep understanding of user pain points 
-                            and close collaboration with end users.
-                        </p>
-                    </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Creating tools that work seamlessly in runtime while maintaining performance was complex. 
-                            I implemented efficient event systems and custom inspector workflows that allowed real-time 
-                            level editing without disrupting the VR experience.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">Editor Tooling</span>
-                        <span class="tag">VR</span>
-                        <span class="tag">Lead Dev</span>
-                        <span class="tag">International Collaboration</span>
-                        <span class="tag">Runtime Tools</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
-                    </div>
-                </div>
 
-                <!-- NutriFinder API Project -->
-                <div class="project-card" id="nutrifinder" data-job-roles="devops">
-                    <h3 class="project-title">NutriFinder API</h3>
-                    <p class="project-description">
-                        An exam project built with professional software architecture and strong focus on testability. 
-                        The system consists of a REST API and CLI client for nutrition lookups, with fallback to OpenFoodFacts 
-                        and the Danish DTU food database.
-                    </p>
-                    
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I built</h4>
                         <p style="font-size: 1rem;">
-                            This project taught me the importance of test-driven development and clean architecture patterns. 
-                            Working with external APIs and handling fallback scenarios reinforced the need for robust error handling 
-                            and service reliability patterns.
+                            Around 30 working pieces, all running in my real workflow. Permission hooks that hard-block dangerous
+                            commands (a database DROP cannot happen by accident). A commit gate so the AI cannot commit on its own
+                            without my explicit go. Architecture-enforcement that blocks module-boundary violations at commit time.
+                            A structured memory system so context survives across sessions without bloating. A "Kitchen Cabinet" of
+                            role-based agents (CTO, finance, legal, and more) I can consult for a decision. And a suite of my own
+                            skills for the work I do most: test-driven development, planning, triage, refactoring, release.
                         </p>
                     </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Integrating multiple data sources with different response formats required careful abstraction. 
-                            I implemented a repository pattern with adapters for each service, enabling seamless fallback between 
-                            data sources while maintaining consistent API responses.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">.NET</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">TDD</span>
-                        <span class="tag">CI/CD</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Testcontainers</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/PB-SK-Xamen-NutriFinder" target="_blank" class="btn">GitHub</a>
-                    </div>
-                </div>
 
-                <!-- Unity DOTS Boids Project -->
-                <div class="project-card" id="unity-boids" data-job-roles="game-development">
-                    <h3 class="project-title">Unity DOTS Boids – Flocking & Performance</h3>
-                    <p class="project-description">
-                        Three technical experiments exploring boid behavior and performance in Unity. 
-                        Includes an ECS version with over 25,000 agents in real time, a GPU-based compute shader version, 
-                        and a prototype applying the system in gameplay.
-                    </p>
-                    
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key insight</h4>
                         <p style="font-size: 1rem;">
-                            Working with Unity's Data-Oriented Technology Stack taught me about performance optimization 
-                            at scale. Comparing CPU and GPU implementations showed me when each approach is most effective 
-                            and how architecture decisions impact performance.
+                            The principle the whole thing runs on: rules suggest, skills enforce. A rule written in prose gets
+                            followed maybe 60 to 70 percent of the time. A mechanical guardrail gets followed 95 percent of the time.
+                            So when something actually matters, I stopped writing a rule and started building a hook. Over 100
+                            improvements tracked, around 30 built, each one a small fix to how the AI and I work together.
                         </p>
                     </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Achieving real-time performance with 25,000+ entities required careful memory management and 
-                            algorithmic optimization. I implemented spatial partitioning and job system parallelization 
-                            to distribute the computational load effectively across available cores.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">DOTS</span>
-                        <span class="tag">ECS</span>
-                        <span class="tag">HLSL</span>
-                        <span class="tag">Compute Shaders</span>
-                        <span class="tag">GPU</span>
-                        <span class="tag">Performance</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/BoidzDots" target="_blank" class="btn">ECS Version</a>
-                        <a href="https://github.com/MTBonde/ComputeShaderBoidTest" target="_blank" class="btn btn-secondary">GPU Version</a>
-                    </div>
-                </div>
 
-                <!-- TrashyShooter Project -->
-                <div class="project-card" id="trashyshooter" data-job-roles="game-development">
-                    <h3 class="project-title">MonoGame FPS – TrashyShooter</h3>
-                    <p class="project-description">
-                        A networked first-person shooter built with MonoGame, implementing advanced networking techniques 
-                        like authoritative server logic, lag compensation, and snapshot interpolation for smooth 
-                        multiplayer gameplay.
-                    </p>
-                    
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Where it's heading</h4>
                         <p style="font-size: 1rem;">
-                            Building networked gameplay taught me about the complexities of real-time synchronization. 
-                            Understanding client prediction, server reconciliation, and lag compensation showed me how 
-                            to create responsive multiplayer experiences despite network latency.
+                            Right now I am setting up a self-hosted, always-on version on my own homelab: a Claude that runs around
+                            the clock, so it can pick up work, orchestrate specialist sub-agents (one researches, one codes, one
+                            tests), and handle routine tasks while I hold the decisions and the quality. I am testing that now. It is
+                            not finished, but it is being built, the same way I build everything, from the foundation up.
                         </p>
                     </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Implementing lag compensation without introducing exploits required careful state management. 
-                            I developed a time-travel system that validates shots against historical game states while 
-                            maintaining authoritative server control over game outcomes.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">MonoGame</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Multiplayer</span>
-                        <span class="tag">Lag Compensation</span>
-                        <span class="tag">Snapshot Interpolation</span>
-                        <span class="tag">Networking</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/TrashyShooter" target="_blank" class="btn">GitHub</a>
-                    </div>
-                </div>
 
-                <!-- HorrorMaze 3D Game -->
-                <div class="project-card" id="horrormaze" data-job-roles="game-development">
-                    <h3 class="project-title">3D Horror Game – HorrorMaze</h3>
-                    <p class="project-description">
-                        A complete prototype of a 3D first-person horror game built in MonoGame, with focus on complex game systems, 
-                        player interaction, and immersive soundscapes.
-                    </p>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
-                        <p style="font-size: 1rem;">
-                            Building an atmospheric horror game taught me about the importance of audio design and player psychology. 
-                            Creating tension through technical implementation rather than just visual assets showed me how code 
-                            can directly impact user experience.
-                        </p>
-                    </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Creating convincing 3D environments with limited resources required creative optimization. 
-                            I implemented dynamic lighting systems and spatial audio to create atmosphere while maintaining 
-                            performance on lower-end hardware.
-                        </p>
-                    </div>
-                    
                     <div class="project-tags">
-                        <span class="tag">MonoGame</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">3D</span>
-                        <span class="tag">Sound Design</span>
-                        <span class="tag">User Testing</span>
-                        <span class="tag">Level Design</span>
+                        <span class="tag">AI-orchestrated</span>
+                        <span class="tag">Hooks</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Systems design</span>
                     </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/MTBonde/HorrorMaze" target="_blank" class="btn">GitHub</a>
-                    </div>
-                </div>
 
-                <!-- SuperSkole Educational Game -->
-                <div class="project-card" id="superskole" data-job-roles="game-development,project-management">
-                    <h3 class="project-title">SuperSkole – Educational Game (Internship)</h3>
-                    <p class="project-description">
-                        Internship project where I acted as Scrum Master and technical lead for a mixed team of developers 
-                        and school interns. Emphasis on structure, mentoring, and continuous delivery. 
-                        Project exceeded original scope by 40%.
-                    </p>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
-                        <p style="font-size: 1rem;">
-                            Leading a diverse team with varying skill levels taught me about adaptive leadership and 
-                            communication. I learned to balance technical guidance with team development, ensuring 
-                            everyone could contribute meaningfully to the project.
-                        </p>
-                    </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Managing scope creep while maintaining team morale required careful planning and communication. 
-                            I implemented structured sprint reviews and created clear documentation to help team members 
-                            understand how their work contributed to the larger goals.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">Scrum Master</span>
-                        <span class="tag">Product Owner</span>
-                        <span class="tag">Project Manager</span>
-                        <span class="tag">Team Lead</span>
-                        <span class="tag">Educational Games</span>
-                        <span class="tag">Leadership</span>
-                    </div>
-                    
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
-                    </div>
-                </div>
-
-                <!-- Unity ML Snake -->
-                <div class="project-card" id="ml-snake" data-job-roles="game-development">
-                    <h3 class="project-title">Unity ML Snake</h3>
-                    <p class="project-description">
-                        A learning game where the player competes against an AI-trained agent. Focus on PPO training 
-                        using Unity ML-Agents and real-time feedback between human and AI performance.
-                    </p>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
-                        <p style="font-size: 1rem;">
-                            Working with reinforcement learning taught me about the iterative nature of AI training and 
-                            the importance of reward function design. Watching an AI learn to play in real-time gave me 
-                            insights into how learning algorithms adapt to challenges.
-                        </p>
-                    </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Balancing the AI difficulty to create engaging gameplay required careful tuning of the training environment. 
-                            I implemented curriculum learning and reward shaping to gradually increase complexity while 
-                            maintaining stable training convergence.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">ML-Agents</span>
-                        <span class="tag">PPO</span>
-                        <span class="tag">Reinforcement Learning</span>
-                        <span class="tag">AI vs Player</span>
-                        <span class="tag">Machine Learning</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="https://github.com/Tarkonner/ML_Snake" target="_blank" class="btn">GitHub</a>
-                    </div>
-                </div>
-
-                <!-- Klimapark Prototype -->
-                <div class="project-card" id="klimapark" data-job-roles="game-development,project-management">
-                    <h3 class="project-title">Klimapark Prototype – Interactive Learning</h3>
-                    <p class="project-description">
-                        Developed an interactive prototype within three weeks for an external client. 
-                        Emphasis on rapid development, collaboration, and delivery under pressure for 
-                        Klimapark Nordvestjylland funding proposal.
-                    </p>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What I Learned</h4>
-                        <p style="font-size: 1rem;">
-                            Working under tight deadlines with external stakeholders taught me about prioritization and 
-                            communication under pressure. I learned to quickly identify the minimum viable features 
-                            that would demonstrate the concept effectively.
-                        </p>
-                    </div>
-                    
-                    <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Challenges & Solutions</h4>
-                        <p style="font-size: 1rem;">
-                            Delivering a compelling prototype in just three weeks required aggressive scope management. 
-                            I focused on creating a polished core experience rather than comprehensive features, 
-                            using rapid prototyping techniques to iterate quickly based on client feedback.
-                        </p>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">Prototype</span>
-                        <span class="tag">Educational Game</span>
-                        <span class="tag">Funding</span>
-                        <span class="tag">Scrum</span>
-                        <span class="tag">Rapid Development</span>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <span class="btn" style="background-color: var(--muted); cursor: default;">Under NDA</span>
+                        <span class="btn" style="background-color: var(--muted); cursor: default;">Public repo planned</span>
                     </div>
                 </div>
             </div>
 
             <!-- Call to Action -->
             <div class="projects-cta">
-                <h2>Looking for a DevOps Engineer?</h2>
+                <h2>Need someone who builds and runs the whole system?</h2>
                 <p class="projects-cta-text">
-                    I'm interested in DevOps, GitOps, and infrastructure roles where I can build reliable systems
-                    and improve deployment workflows.
+                    I'm open to DevOps, platform, and backend roles, ideally remote. I built and run a SaaS solo, so I'm
+                    comfortable owning anything from the database to production operations. Let's talk about what you need built.
                 </p>
                 <div class="projects-cta-button">
                     <a href="contact.html" class="btn">Get In Touch</a>
@@ -615,7 +802,7 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <p>&copy; 2026 Mpho Bonde. All rights reserved.</p>
+                    <p>&copy; 2026 M. T. Bonde. All rights reserved.</p>
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>

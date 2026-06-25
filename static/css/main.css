@@ -367,6 +367,13 @@ a:focus-visible {
   color: var(--primary);
 }
 
+.project-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 var(--space-3);
+  letter-spacing: 0.01em;
+}
+
 .project-description {
   color: var(--muted);
   margin-bottom: var(--space-4);

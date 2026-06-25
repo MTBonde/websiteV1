@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Mpho Bonde</title>
+    <title>About - M. T. Bonde</title>
     
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +18,9 @@
     </script>
 
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Learn more about Mpho Bonde - Developer, DevOps Engineer, and curious problem solver.">
-    <meta name="keywords" content="mpho bonde, developer, devops, about, background, experience">
-    <meta name="author" content="Mpho Bonde">
+    <meta name="description" content="About M. T. Bonde - Systems Engineer who designs and builds, from low-level performance to GitOps.">
+    <meta name="keywords" content="m t bonde, systems engineer, devops, gitops, backend, about">
+    <meta name="author" content="M. T. Bonde">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="static/assets/icons/apple-touch-icon.png">
@@ -41,63 +41,67 @@
             <h1>About Me</h1>
 
             <div class="card">
-                <h2>DevOps Engineer & Infrastructure Specialist</h2>
+                <h2>Systems Engineer</h2>
                 <p>
-                    I'm a DevOps engineer who specializes in building reliable infrastructure and automating deployment pipelines.
-                    My approach combines infrastructure-as-code principles with practical problem-solving, always focusing on
-                    scalability, reliability, and developer experience.
+                    I design and build systems, from low-level performance to GitOps. The red thread across my work is that
+                    I dig to the bottom of the system, deeper than the task asked for, and solve the part others gave up on.
+                    Boids at 35,000 agents and 60 FPS through spatial hashing and Unity DOTS. 3D in MonoGame when people said
+                    it could not be done. A whole SaaS built and run in production, solo.
                 </p>
 
                 <p>
-                    What drives me is the challenge of creating systems that work seamlessly in production. I believe the best
-                    infrastructure is invisible to developers—robust enough to handle failures gracefully, automated enough to
-                    eliminate manual toil, and observable enough to understand what's happening at any moment.
+                    I am not someone who uses AI to type a bit faster. I build systems, and AI is one of my tools in that.
+                    I direct an AI as my lead developer and own every architectural decision myself. MyFoodBudget is the proof
+                    that this way of working ships real, running software.
                 </p>
             </div>
 
             <div class="card">
-                <h2>My Approach to DevOps</h2>
-                <p>
-                    I approach infrastructure and automation with a focus on reliability, repeatability, and continuous improvement.
-                    Every system should be built to fail gracefully and recover automatically.
-                </p>
-
+                <h2>How I work</h2>
                 <ul style="margin-top: 1rem; margin-left: 2rem; color: var(--muted);">
-                    <li><strong style="color: var(--text);">Infrastructure as Code:</strong> All infrastructure defined in version control, reviewed, and deployed through automated pipelines.</li>
-                    <li><strong style="color: var(--text);">Automation First:</strong> Eliminate manual processes through CI/CD pipelines, automated testing, and self-healing systems.</li>
-                    <li><strong style="color: var(--text);">Observability:</strong> Comprehensive monitoring, logging, and alerting to understand system behavior and identify issues quickly.</li>
-                    <li><strong style="color: var(--text);">Security by Design:</strong> Security integrated into every layer, from container scanning to network policies and secret management.</li>
+                    <li><strong style="color: var(--text);">Fix the cause, not the symptom:</strong> when numbers disagreed across MyFoodBudget, I moved all computation behind one authoritative endpoint instead of patching mismatches one at a time.</li>
+                    <li><strong style="color: var(--text);">Infrastructure as Code:</strong> GitOps with Flux and Kustomize, sealed-secrets so credentials are safe to commit, automated promotion through staging and production.</li>
+                    <li><strong style="color: var(--text);">Prove, don't promise:</strong> I show running systems, not slideware. Two Kubernetes clusters, a CI pipeline, monitoring, and encrypted nightly backups, all live.</li>
+                    <li><strong style="color: var(--text);">Depth before language:</strong> I understand the principles behind good code, so a stack I have not used yet is a short ramp, not a wall.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>Current Focus & Learning</h2>
+                <h2>How I got here</h2>
                 <p>
-                    The DevOps landscape evolves rapidly. I'm currently deepening my expertise in:
+                    DevOps was not a career box I ticked. During a course a teacher mentioned, in passing, that he hosted his own
+                    things in containers and ran a homelab. I went home, looked it up, and found it was exactly my thing. At the
+                    exam I used Watchtower to auto-update images, and the teacher took a note for his own homelab because he had
+                    not heard of it. From there I went hard on it in my own time and carried it into every project since.
                 </p>
-
-                <ul style="margin-top: 1rem; margin-left: 2rem; color: var(--muted);">
-                    <li>Advanced Kubernetes patterns and service mesh architectures</li>
-                    <li>GitOps workflows with ArgoCD and Flux</li>
-                    <li>Infrastructure as Code with Terraform and CloudFormation</li>
-                    <li>Container security and vulnerability scanning</li>
-                    <li>Observability stacks (Prometheus, Grafana, Loki)</li>
-                    <li>Cloud-native CI/CD with GitHub Actions and GitLab CI</li>
-                </ul>
             </div>
 
             <div class="card">
-                <h2>Homelab & Hands-On Learning</h2>
+                <h2>MyFoodBudget</h2>
                 <p>
-                    I maintain a homelab environment where I experiment with production-grade infrastructure patterns.
-                    This hands-on experience with real systems—dealing with failures, performance issues, and security concerns—
-                    has taught me lessons that can't be learned from documentation alone.
+                    I built MyFoodBudget because I needed the tool myself. It started as my internship and bachelor thesis and
+                    just kept growing. Along the way I found out other families could use it too. It is something I am passionate
+                    about finishing and releasing as v1. It runs in production on my own infrastructure today.
                 </p>
+            </div>
 
+            <div class="card">
+                <h2>Beyond software</h2>
                 <p>
-                    My homelab includes containerized services, automated deployments via GitHub Actions, secure tunneling
-                    with Cloudflare, and monitoring stacks. It's where theory meets practice, and where I validate
-                    architectural decisions before applying them professionally.
+                    I am not a 22 year old who only knows code. I have lived, led, and worked internationally, and I chose
+                    software as my next chapter with open eyes. That background is not a side story next to the tech. It made me
+                    better at it.
+                </p>
+                <ul style="margin-top: 1rem; margin-left: 2rem; color: var(--muted);">
+                    <li><strong style="color: var(--text);">Leadership, for real:</strong> sergeant in armoured infantry, training and commanding soldiers under pressure. When I was Scrum Master and lead in my internship, I drew on having actually led people before.</li>
+                    <li><strong style="color: var(--text);">A whole career in agriculture and sustainability:</strong> trained as a farmer, ran permaculture startup projects in South Africa and Guatemala, built with Earthship sustainable construction, and chaired Earthship Denmark. Designing robust, self-sustaining systems is the same instinct whether it is a farm or a backend.</li>
+                    <li><strong style="color: var(--text);">Work under pressure:</strong> years as a chef in a busy kitchen taught me time management and staying calm when everything is on fire at once.</li>
+                    <li><strong style="color: var(--text);">Always learning more:</strong> Harvard's CS50 and CS50P online, on top of the degree, because I wanted to.</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    It connects to the work in concrete ways. My agriculture and permaculture knowledge fed straight into the
+                    KlimaPark learning game, where I could talk to the client on their own field. And there is a quiet red thread
+                    from growing food to building a tool that helps families with their food budget.
                 </p>
             </div>
 
@@ -119,7 +123,7 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <p>&copy; 2026 Mpho Bonde. All rights reserved.</p>
+                    <p>&copy; 2026 M. T. Bonde. All rights reserved.</p>
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
