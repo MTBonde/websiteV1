@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function initializeProjectFilter()
     const activeTechnologyTags = new Set();
 
     const tagCategoryMapping = {
-        devops: ['Docker', 'Docker Compose', 'Kubernetes', 'Flux CD', 'GitOps', 'Kustomize', 'sealed-secrets', 'GitHub Actions', 'CI/CD', 'Cloudflare Tunnel', 'Linux', 'systemd', 'Ansible', 'Prometheus', 'Grafana', 'Self-hosting', 'Security'],
+        devops: ['Docker', 'Docker Compose', 'Kubernetes', 'Flux CD', 'GitOps', 'DevOps', 'Kustomize', 'sealed-secrets', 'GitHub Actions', 'Git', 'CI/CD', 'Cloudflare', 'Cloudflare Tunnel', 'nginx', 'Bash', 'Linux', 'systemd', 'Ansible', 'Prometheus', 'Grafana', 'Self-hosting', 'Security'],
         backend: ['Python', 'Flask', 'PostgreSQL', '.NET', 'C#', 'RabbitMQ', 'Redis', 'MongoDB', 'ASP.NET Core'],
         performance: ['Unity DOTS', 'ECS', 'Burst', 'Spatial hashing', 'OpenGL', 'GLSL', 'Compute shaders', 'Performance', 'Lag compensation', 'Snapshot interpolation'],
         gamedev: ['Unity', 'MonoGame', 'Multiplayer', 'Runtime tooling', 'Level editor', '3D rendering'],
-        ai: ['ML-Agents', 'Reinforcement Learning', 'AI-orchestrated'],
+        ai: ['ML-Agents', 'Reinforcement Learning', 'AI-orchestrated', 'Hooks', 'Automation', 'Systems design'],
         leadership: ['Scrum Master', 'Team leadership', 'TDD', 'Client communication', 'User testing']
     };
 
