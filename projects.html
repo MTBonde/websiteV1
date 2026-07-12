@@ -51,7 +51,7 @@
                 <div class="filter-section">
                     <button class="filter-section-header" aria-expanded="false">
                         <span class="filter-section-title">Filter by Job Role</span>
-                        <span class="filter-section-toggle">▶</span>
+                        <span class="filter-section-toggle"><i class="bi bi-chevron-right"></i></span>
                     </button>
                     <div class="filter-section-content" style="display: none;">
                         <p style="font-size: 0.95rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">
@@ -75,7 +75,7 @@
                 <div class="filter-section">
                     <button class="filter-section-header" aria-expanded="false">
                         <span class="filter-section-title">Filter by Technology</span>
-                        <span class="filter-section-toggle">▶</span>
+                        <span class="filter-section-toggle"><i class="bi bi-chevron-right"></i></span>
                     </button>
                     <div class="filter-section-content" style="display: none;">
                         <p style="font-size: 0.95rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">
@@ -130,7 +130,7 @@
                 <!-- 1. HorrorMaze (2023, datamatiker 1st-year) -->
                 <div class="project-card" id="horrormaze" data-job-roles="game-development">
                     <h3 class="project-title">HorrorMaze - 3D Horror Game in MonoGame</h3>
-                    <p class="project-meta">Datamatiker 1st-year exam &middot; 2023 &middot; 2 person team &middot; grade 12</p>
+                    <p class="project-meta">Datamatiker 1st-year exam | 2023 | 2 person team | grade 12</p>
                     <p class="project-description">
                         A first-person 3D horror game made in MonoGame, a 2D framework with no built-in 3D camera, no model
                         tooling, and no shaders. When we asked around if 3D was even doable in it, people said it was too hard
@@ -172,7 +172,7 @@
                 <!-- 2. TrashyShooter (2023, datamatiker netcode) -->
                 <div class="project-card" id="trashyshooter" data-job-roles="game-development">
                     <h3 class="project-title">TrashyShooter - Networked 3D Multiplayer FPS</h3>
-                    <p class="project-meta">Datamatiker &middot; 2023 &middot; 2 person team (50/50) &middot; 11 day sprint</p>
+                    <p class="project-meta">Datamatiker | 2023 | 2 person team (50/50) | 11 day sprint</p>
                     <p class="project-description">
                         A 3D multiplayer first-person shooter in MonoGame, with a dedicated authoritative game server, multiple
                         clients, and a scoreboard API. The hard part is the networking: keeping a fast game in sync across clients
@@ -194,7 +194,7 @@
                         <p style="font-size: 1rem;">
                             We made the server authoritative: it owns the game state, clients only send input. That stops cheating
                             at the source, but it creates a lag problem, so we added server-side lag compensation, rewinding to
-                            historical snapshots to judge shots fairly. It is a prototype, not a finished product (11 days), so some
+                            historical snapshots to judge shots fairly. It is an 11 day prototype, so some
                             parts like acknowledgement and error handling are partial. The core netcode works.
                         </p>
                     </div>
@@ -216,7 +216,7 @@
                 <!-- 3. Fresh Tracks / CDM Vancouver (2024, datamatiker exchange) -->
                 <div class="project-card" id="cdm-vancouver" data-job-roles="game-development">
                     <h3 class="project-title">Fresh Tracks (CDM Vancouver) - Runtime Level Editor Tools</h3>
-                    <p class="project-meta">Datamatiker exchange, Centre for Digital Media &middot; 2024 &middot; international team</p>
+                    <p class="project-meta">Datamatiker exchange, Centre for Digital Media | 2024 | international team</p>
                     <p class="project-description">
                         A semester abroad in Vancouver, enrolled through Simon Fraser University, working at the Centre for Digital
                         Media. CDM puts students from different backgrounds into teams that build for real clients. Our client was
@@ -239,10 +239,9 @@
                         <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Working with the client</h4>
                         <p style="font-size: 1rem;">
                             A real client with real users, so I ran user interviews and usability tests and built the features around
-                            that feedback. The studio's founder wrote afterward:
+                            that feedback. Patrick Owens, the studio's founder, wrote afterward:
                             <em>"His work on introducing multi-selection and grouping functionality has been particularly noteworthy,
                             as it directly responded to user feedback and significantly improved the level design process."</em>
-                            &mdash; Patrick Owens, Founder, Buffalo Buffalo.
                         </p>
                     </div>
 
@@ -262,7 +261,7 @@
                 <!-- 4. SuperSkole (2024, PBA praktik) -->
                 <div class="project-card" id="superskole" data-job-roles="game-development,project-management">
                     <h3 class="project-title">SuperSkole - Educational Game (Internship)</h3>
-                    <p class="project-meta">PBA internship &middot; 2024 &middot; Scrum Master and technical lead</p>
+                    <p class="project-meta">PBA internship | 2024 | Scrum Master and technical lead</p>
                     <p class="project-description">
                         An educational game built in Unity during my internship. I was Scrum Master and technical lead, and I also
                         coded. My job was to lead the team, mentor where it was needed, and get the project shipped. It ended up
@@ -301,7 +300,7 @@
                 <!-- 5. KlimaPark (2024, PBA Scrum course) -->
                 <div class="project-card" id="klimapark" data-job-roles="game-development,project-management">
                     <h3 class="project-title">KlimaPark - Interactive Learning Prototype</h3>
-                    <p class="project-meta">PBA, Scrum course &middot; 2024 &middot; Scrum Master, client contact, developer</p>
+                    <p class="project-meta">PBA, Scrum course | 2024 | Scrum Master, client contact, developer</p>
                     <p class="project-description">
                         An interactive learning game in Unity for an external client, KlimaPark Nordvestjylland, to teach school kids
                         what a climate park is and how it works. This was the Scrum course, so the real point was running proper Scrum,
@@ -321,7 +320,7 @@
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
                         <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Key takeaway</h4>
                         <p style="font-size: 1rem;">
-                            Doing Scrum properly with a real client, not a pretend one, is different from doing it in a classroom
+                            Doing Scrum properly with a real client is different from doing it in a classroom
                             exercise. Being the client contact taught me to translate between what a customer says they want and what
                             the team can actually build in three weeks.
                         </p>
@@ -342,10 +341,10 @@
                 <!-- 6. Survive the DOiTS (2024, datamatiker hovedopgave, FLAGSHIP) -->
                 <div class="project-card" id="survive-the-doits" data-job-roles="game-development">
                     <h3 class="project-title">Survive the DOiTS - Boids Performance at Scale (Unity DOTS)</h3>
-                    <p class="project-meta">Datamatiker main thesis (hovedopgave) &middot; 2024 &middot; solo &middot; grade 12</p>
+                    <p class="project-meta">Datamatiker main thesis (hovedopgave) | 2024 | solo | grade 12</p>
                     <p class="project-description">
                         My datamatiker main thesis. A first-person shooter built to push Unity DOTS to its limit by simulating huge
-                        swarms of flocking boids (separation, alignment, cohesion). The point was not the game, it was the performance:
+                        swarms of flocking boids (separation, alignment, cohesion). The point was the performance:
                         how many agents can you simulate at 60 FPS, and what does it take to get there. I reached 35,000 boids at a
                         stable 60 FPS. The goal was 10,000, so it beat that by more than three times.
                     </p>
@@ -367,7 +366,7 @@
                             I went with Unity DOTS instead of normal Unity (MonoBehaviour). DOTS uses an entity component system that
                             stores data tightly together and lets the Job system run work across all CPU cores without locks, and the
                             Burst compiler turns it into native machine code. The move system handled 2,500 boids at 10.26ms without
-                            Burst, and 35,000 boids at 0.014ms with it. This is CPU work through Jobs and Burst, not GPU.
+                            Burst, and 35,000 boids at 0.014ms with it. All of it is CPU work through Jobs and Burst.
                         </p>
                     </div>
 
@@ -389,7 +388,7 @@
                 <!-- 7. Unity ML Snake (2025, Dania school) -->
                 <div class="project-card" id="ml-snake" data-job-roles="game-development">
                     <h3 class="project-title">Unity ML Snake - Reinforcement Learning</h3>
-                    <p class="project-meta">Datamatiker (Dania) &middot; 2025 &middot; 3 person team</p>
+                    <p class="project-meta">Datamatiker (Dania) | 2025 | 3 person team</p>
                     <p class="project-description">
                         A Unity game where a snake is driven by an AI agent that learns to play through reinforcement learning, using
                         Unity ML-Agents. It runs human against AI, so you can watch the trained agent play next to a person. A two week
@@ -429,7 +428,7 @@
                 <!-- 8. YinYang engine (2025, PBA graphics) -- NEW CARD -->
                 <div class="project-card" id="yinyang-engine" data-job-roles="game-development">
                     <h3 class="project-title">YinYang - Real-time 3D Graphics Engine (OpenGL)</h3>
-                    <p class="project-meta">PBA, graphics course &middot; 2025 &middot; 2 person team</p>
+                    <p class="project-meta">PBA, graphics course | 2025 | 2 person team</p>
                     <p class="project-description">
                         A custom real-time 3D graphics engine in C# on OpenTK (OpenGL 4.6). The assignment was to pick one graphics
                         topic and implement it. We built a whole engine instead and implemented all of them. It runs a cave scene with
@@ -451,7 +450,7 @@
                         <p style="font-size: 1rem;">
                             OpenGL gives you the raw API and nothing else, so everything above it we built ourselves. The engine is a
                             chain of render passes you can compose: shadow pass, scene pass, bloom, god rays, reflection capture. Adding
-                            a new effect means adding a pass, not rewriting the renderer. The harder pieces used geometry shaders
+                            a new effect means adding a pass. The harder pieces used geometry shaders
                             (rendering all six faces of a shadow cubemap in one pass) and compute shaders (updating particles on the GPU).
                         </p>
                     </div>
@@ -472,12 +471,11 @@
                 <!-- 9. NutriFinder (2025, PBA software quality) -->
                 <div class="project-card" id="nutrifinder" data-job-roles="devops">
                     <h3 class="project-title">NutriFinder - REST API with a Quality Pipeline</h3>
-                    <p class="project-meta">PBA, software quality exam &middot; 2025 &middot; 2 person team</p>
+                    <p class="project-meta">PBA, software quality exam | 2025 | 2 person team</p>
                     <p class="project-description">
                         A REST API and CLI client for nutrition lookups, built in ASP.NET Core. It checks a MongoDB cache first, then
-                        falls back to external sources (the Danish DTU food database and OpenFoodFacts). The API was not really the
-                        point: this was the software quality exam, so the point was how it was built. Testing, CI/CD, and an architecture
-                        you can actually test.
+                        falls back to external sources (the Danish DTU food database and OpenFoodFacts). This was the software quality
+                        exam, so the point was how it was built: testing, CI/CD, and an architecture you can actually test.
                     </p>
 
                     <div class="card" style="margin: 1.5rem 0; background-color: var(--hover-bg);">
@@ -495,8 +493,8 @@
                         <p style="font-size: 1rem;">
                             We drove the whole thing test first (TDD). The project ended on 44 tests with 96% line coverage, split across
                             unit, integration, and end to end tests. The integration tests run against a real MongoDB using Testcontainers,
-                            so they test the actual database, not a mock. The report is honest about it: high coverage means the code was
-                            tested, not that it is good code. Tests are protection against regressions, not a number to chase.
+                            so they test the actual database. High coverage shows the code was tested, and that is all it shows. The tests
+                            are there as protection against regressions.
                         </p>
                     </div>
 
@@ -517,7 +515,7 @@
                 <!-- 10. Homelab v1 (2025, personal) -->
                 <div class="project-card" id="homelab" data-job-roles="devops">
                     <h3 class="project-title">Homelab - Self-hosted from Scratch</h3>
-                    <p class="project-meta">Personal project &middot; 2025 &middot; solo</p>
+                    <p class="project-meta">Personal project | 2025 | solo</p>
                     <p class="project-description">
                         My first self-hosted server, and where DevOps started for me. I took NutriFinder, my exam project, and put it
                         live in production on my own machine, reachable from the internet at api.mtbonde.dev. Self-contained on purpose,
@@ -565,7 +563,7 @@
                 <!-- 11. Offline Bootstrap USB (2025, personal) -- NEW CARD -->
                 <div class="project-card" id="bootstrap-usb" data-job-roles="devops">
                     <h3 class="project-title">Offline Bootstrap USB - Hardening Before First Boot</h3>
-                    <p class="project-meta">Personal project &middot; 2025 &middot; solo</p>
+                    <p class="project-meta">Personal project | 2025 | solo</p>
                     <p class="project-description">
                         A USB stick that hardens a fresh Linux server before it ever touches the network. There is a window between
                         installing an OS with network access and finishing the hardening where the machine is exposed. This closes that
@@ -609,7 +607,7 @@
                 <!-- 12. Alexor (2025, PBA SI/USS exam) -->
                 <div class="project-card" id="alexor-platform" data-job-roles="devops">
                     <h3 class="project-title">Alexor - GitOps Microservice Backend</h3>
-                    <p class="project-meta">PBA, System Integration exam &middot; 2025 &middot; 2 person team &middot; grade 12</p>
+                    <p class="project-meta">PBA, System Integration exam | 2025 | 2 person team | grade 12</p>
                     <p class="project-description">
                         A backend platform for an Unreal Engine multiplayer game, built as microservices on Kubernetes with a fully
                         automated GitOps delivery pipeline. Six services (auth, session, registry, relay, chat, and the game server) talk
@@ -634,8 +632,8 @@
                             I applied the CAP theorem per service instead of one rule for all: auth and the game server are consistency-first,
                             session and registry are availability-first with eventual consistency. And the resilience: Kubernetes probes heal
                             at the container level, but that does not help a service that is up but talking to a dependency that is down, so
-                            HAGI.Robust adds that protection at the application level. To be clear about scope, Alexor is a proof of concept on
-                            a single node. The patterns are production-grade, the deployment is a POC.
+                            HAGI.Robust adds that protection at the application level. Alexor itself is a proof of concept on a single node.
+                            The same patterns run in production in MyFoodBudget today.
                         </p>
                     </div>
 
@@ -663,12 +661,12 @@
                 <!-- 13. MyFoodBudget (2024-now, PBA thesis, FLAGSHIP / capstone) -->
                 <div class="project-card" id="myfoodbudget" data-job-roles="devops">
                     <h3 class="project-title">MyFoodBudget - A SaaS in Production, Built Solo</h3>
-                    <p class="project-meta">PBA bachelor thesis &middot; 2024 to now &middot; solo, AI-orchestrated &middot; grade 12 &middot; live</p>
+                    <p class="project-meta">PBA bachelor thesis | 2024 to now | solo, AI-orchestrated | grade 12 | live</p>
                     <p class="project-description">
                         A meal planning SaaS that turns recipe choices into store-grouped shopping lists with real deal matching and savings
                         across Danish grocery chains. Guest-first, so the whole core flow works without an account. It started as my internship
                         and bachelor thesis and kept growing into a tool other families could use too. I built it alone and I run it in production
-                        on my own infrastructure. This is the full thing, from the database to the running service, not a demo.
+                        on my own infrastructure. It is the full thing, from the database to the running service.
                     </p>
                     <p class="project-description">
                         I build it the way I work now: I direct an AI as my lead developer and own every architectural decision myself. The
@@ -728,10 +726,10 @@
                 <!-- 14. BCS (2026-now, personal, capstone) -->
                 <div class="project-card" id="bcs" data-job-roles="devops">
                     <h3 class="project-title">BCS - The System That Makes My AI a Reliable Lead Developer</h3>
-                    <p class="project-meta">Personal project &middot; 2026 to now &middot; solo &middot; ongoing</p>
+                    <p class="project-meta">Personal project | 2026 to now | solo | ongoing</p>
                     <p class="project-description">
                         Everyone can use an AI tool now. BCS is the system I built so I can direct one like a reliable lead
-                        developer, not just chat with it. It is hooks, skills, a memory system, and role-based agents that turn a
+                        developer. It is hooks, skills, a memory system, and role-based agents that turn a
                         general AI into a disciplined teammate that follows my rules and ships real work. I own the architecture
                         and the decisions, the AI is a strong pair of hands, and MyFoodBudget is what that collaboration produced:
                         a whole SaaS in production.
@@ -764,8 +762,8 @@
                         <p style="font-size: 1rem;">
                             Right now I am setting up a self-hosted, always-on version on my own homelab: a Claude that runs around
                             the clock, so it can pick up work, orchestrate specialist sub-agents (one researches, one codes, one
-                            tests), and handle routine tasks while I hold the decisions and the quality. I am testing that now. It is
-                            not finished, but it is being built, the same way I build everything, from the foundation up.
+                            tests), and handle routine tasks while I hold the decisions and the quality. I am testing that now, building
+                            it the same way I build everything, from the foundation up.
                         </p>
                     </div>
 
@@ -806,7 +804,7 @@
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/mtbonde" target="_blank" aria-label="GitHub">GitHub</a>
-                    <a href="https://linkedin.com/in/mtbonde" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/mpho-thor-bonde/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
                     <span aria-label="CV">CV på forespørgsel</span>
                 </div>
             </div>

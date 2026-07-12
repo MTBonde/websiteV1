@@ -195,11 +195,11 @@ document.addEventListener('DOMContentLoaded', function initializeProjectFilter()
                 if (isExpanded) {
                     header.setAttribute('aria-expanded', 'false');
                     content.style.display = 'none';
-                    toggle.textContent = '▶';
+                    toggle.innerHTML = '<i class="bi bi-chevron-right"></i>';
                 } else {
                     header.setAttribute('aria-expanded', 'true');
                     content.style.display = 'block';
-                    toggle.textContent = '▼';
+                    toggle.innerHTML = '<i class="bi bi-chevron-down"></i>';
                 }
             });
         });
