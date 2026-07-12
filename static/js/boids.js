@@ -1073,7 +1073,7 @@ class BoidsSystem {
   createControlPanel() {
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'boids-toggle-btn';
-    toggleBtn.innerHTML = '🐦';
+    toggleBtn.innerHTML = '<i class="bi bi-sliders"></i>';
     toggleBtn.setAttribute('aria-label', 'Toggle boids controls');
     toggleBtn.setAttribute('tabindex', '0');
     toggleBtn.setAttribute('role', 'button');
