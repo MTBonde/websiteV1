@@ -58,3 +58,7 @@ coverage/
 
 # Private strategy/planning docs (never committed -- job-hunt strategy, positioning notes)
 _private/
+
+# Local tooling files (never published: GitHub Pages serves the repo root as-is)
+CLAUDE.md
+.claude/
